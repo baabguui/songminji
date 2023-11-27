@@ -1,0 +1,28 @@
+{
+    "three": [
+        {
+            "title": "Quest",
+            "id": 1,
+            "place": "갤러리 인 HQ",
+            "works": [
+                { "id": 1 },
+                {
+                    "id": 2
+                },
+                { "id": 3 }
+            ]
+        },
+        {
+            "title": "4needles",
+            "id": 2,
+            "place": "에브리아트",
+            "works": [{ "id": 1 }, { "id": 2 }]
+        },
+        {
+            "title": "",
+            "id": 3,
+            "place": "",
+            "works": []
+        }
+    ]
+}

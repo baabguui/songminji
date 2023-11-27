@@ -1,0 +1,9 @@
+.CVContainer {
+    position: relative;
+    width: 100vw;
+    height: 85vh;
+    top: 15vh;
+    left: 5vw;
+    font-size: 0.8rem;
+    cursor: url(../assets/cur.cur), auto !important;
+}
