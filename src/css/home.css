@@ -1,0 +1,81 @@
+.background {
+    background-image: url("../assets/background.png");
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.works {
+    background-image: url("../assets/plates.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 13vw;
+    height: 36vh;
+    z-index: 1;
+    left: 82vw;
+    top: 17vh;
+}
+
+.works:hover {
+    background-image: url("../assets/Works.png");
+    background-size: 100%;
+    top: 33vh;
+    height: 36vh;
+    cursor: url(../assets/hover.cur), auto;
+}
+
+.exhibitions {
+    background-image: url("../assets/badee.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 23vw;
+    height: 28vh;
+    z-index: 1;
+    left: 60vw;
+    top: 40vh;
+}
+.exhibitions:hover {
+    background-image: url("../assets/Exhibitions.png");
+    background-size: 80%;
+    top: 44vh;
+    cursor: url(../assets/hover.cur), auto;
+}
+
+.cv {
+    background-image: url("../assets/bottle.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 13vw;
+    height: 20vh;
+    z-index: 1;
+    left: 72vw;
+    top: 82vh;
+}
+
+.cv:hover {
+    background-image: url("../assets/CV.png");
+    background-size: 60%;
+    top: 85vh;
+    cursor: url(../assets/hover.cur), auto;
+}
+
+.link {
+    background-image: url("../assets/chopsticks.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 14vw;
+    height: 13vh;
+    z-index: 1;
+    top: 54vh;
+    left: 52vw;
+}
+
+.link:hover {
+    cursor: url(../assets/hover.cur), auto;
+}
