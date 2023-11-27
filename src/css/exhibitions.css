@@ -1,0 +1,51 @@
+.exhibitionsListContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 2vh;
+    column-gap: 1vw;
+    position: relative;
+    width: 95vw;
+    height: auto;
+    top: 15vh;
+
+    margin-left: auto;
+    margin-right: auto;
+    cursor: url(../assets/cur.cur), auto !important;
+}
+
+.exhibitionListItem {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    align-items: center;
+    align-self: center;
+    width: auto;
+    height: 30vh;
+}
+
+.poster {
+    margin-top: 1vh;
+    width: 22vw;
+    height: 23vh;
+    object-fit: contain;
+    background-color: rgb(228, 226, 226);
+}
+
+.exhibitionContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    top: 10vh;
+    cursor: url(../assets/cur.cur), auto !important;
+}
+
+.exhibitionItem {
+    margin-top: 5vh;
+    max-width: 50vw;
+    max-height: 70vh;
+    object-fit: contain;
+}
