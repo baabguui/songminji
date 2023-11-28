@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { ROUTES_LIST } from "./routes";
 import Home from "./pages/Home";
 import "./css/app.css";
 
 function App() {
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
                 {ROUTES_LIST.map(({ path, Component }, idx) => (
