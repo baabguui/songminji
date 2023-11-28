@@ -16,14 +16,14 @@
     cursor: url(../assets/cur.cur), auto !important;
 }
 
-.work {
+.workPreview {
     height: auto;
     object-fit: contain;
     transform: scale(1);
     transition: transform 0.5s;
 }
 
-.work:hover {
+.workPreview:hover {
     z-index: 1;
     position: sticky;
     width: 12vw;

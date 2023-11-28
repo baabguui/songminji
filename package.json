@@ -16,17 +16,17 @@
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.17.0",
         "react-scripts": "5.0.1",
+        "shx": "^0.3.4",
         "typescript": "^4.9.5",
         "web-vitals": "^2.1.4"
     },
-    "home": "https://baabguui.github.io/songminji/",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "deploy": "gh-pages -d build",
-        "predeploy": "npm run build"
+        "predeploy": "npm run build",
+        "deploy": "shx cp build/index.html build/404.html && gh-pages -d build"
     },
     "eslintConfig": {
         "extends": [
@@ -53,5 +53,6 @@
     },
     "devDependencies": {
         "@types/lodash": "^4.14.201"
-    }
+    },
+    "homepage": "https://baabguui.github.io/songminji"
 }
