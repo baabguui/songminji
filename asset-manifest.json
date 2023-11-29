@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/songminji/static/css/main.90ff1343.css",
-    "main.js": "/songminji/static/js/main.aec40fe8.js",
+    "main.css": "/songminji/static/css/main.9fe28bdd.css",
+    "main.js": "/songminji/static/js/main.86f26a2f.js",
     "static/media/background.png": "/songminji/static/media/background.50162211b32333ce466a.png",
     "static/media/two.png": "/songminji/static/media/two.8cdc1bdabb005d3858f8.png",
     "static/media/plates.png": "/songminji/static/media/plates.6adbdd2a1007c328b93f.png",
@@ -9,16 +9,16 @@
     "static/media/chopsticks.png": "/songminji/static/media/chopsticks.2dee8465190c31a23484.png",
     "static/media/bottle.png": "/songminji/static/media/bottle.0b715ebde9d0364897d1.png",
     "static/media/Exhibitions.png": "/songminji/static/media/Exhibitions.7e2a1a35809913e9ce1c.png",
-    "static/media/Works.png": "/songminji/static/media/Works.abfe3d584985cfde46bf.png",
+    "static/media/Works.png": "/songminji/static/media/Works.22c812c44557dde143e9.png",
     "static/media/home.png": "/songminji/static/media/home.c9b72353d5f60f093dda.png",
     "static/media/cur.cur": "/songminji/static/media/cur.6e19e5dccba2dc14ef7b.cur",
     "static/media/hover.cur": "/songminji/static/media/hover.155a48468588f9e75079.cur",
     "index.html": "/songminji/index.html",
-    "main.90ff1343.css.map": "/songminji/static/css/main.90ff1343.css.map",
-    "main.aec40fe8.js.map": "/songminji/static/js/main.aec40fe8.js.map"
+    "main.9fe28bdd.css.map": "/songminji/static/css/main.9fe28bdd.css.map",
+    "main.86f26a2f.js.map": "/songminji/static/js/main.86f26a2f.js.map"
   },
   "entrypoints": [
-    "static/css/main.90ff1343.css",
-    "static/js/main.aec40fe8.js"
+    "static/css/main.9fe28bdd.css",
+    "static/js/main.86f26a2f.js"
   ]
 }
