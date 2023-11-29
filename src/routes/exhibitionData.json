@@ -13,16 +13,10 @@
             ]
         },
         {
-            "title": "4needles",
+            "title": "4 needles",
             "id": 2,
             "place": "에브리아트",
             "works": [{ "id": 1 }, { "id": 2 }]
-        },
-        {
-            "title": "",
-            "id": 3,
-            "place": "",
-            "works": []
         }
     ]
 }
