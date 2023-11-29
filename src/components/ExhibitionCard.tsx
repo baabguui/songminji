@@ -15,7 +15,17 @@ const ExhibitionCard = (props: {
             style={{ textDecorationLine: "none", color: "black" }}
         >
             <div className="exhibitionListItem">
-                <img className="poster" alt="poster" />
+                <img
+                    className="poster"
+                    src={
+                        process.env.PUBLIC_URL +
+                        "/images/2023/exhibitions/" +
+                        props.exhibition.title +
+                        "/1" +
+                        ".jpg"
+                    }
+                    alt="poster"
+                />
                 {props.exhibition.title} <br />
                 {props.exhibition.place}
             </div>
