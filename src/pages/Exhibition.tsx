@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import exhibitionData from "../routes/exhibitionData.json";
-import "../css/exhibitions.css";
+import "../styles/exhibitions.css";
 import Header from "../components/Header";
 
 const Exhibition = () => {

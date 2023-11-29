@@ -22,14 +22,15 @@
     align-self: center;
     width: auto;
     height: 30vh;
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 .poster {
     margin-top: 1vh;
     width: 22vw;
-    height: 23vh;
+    height: 20vh;
     object-fit: contain;
-    background-color: rgb(228, 226, 226);
+    background-color: rgb(255, 255, 255);
 }
 
 .exhibitionContainer {
@@ -41,6 +42,7 @@
     height: auto;
     top: 10vh;
     cursor: url(../assets/cur.cur), auto !important;
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 .exhibitionItem {

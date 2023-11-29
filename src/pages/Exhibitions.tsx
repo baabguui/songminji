@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import ExhibitionCard from "../components/ExhibitionCard";
 import exhibitionData from "../routes/exhibitionData.json";
-import "../css/exhibitions.css";
+import "../styles/exhibitions.css";
 
 const Exhibitions = () => {
     const exhibitionList = [...exhibitionData.three];

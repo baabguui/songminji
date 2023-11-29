@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../routes";
 import Header from "../components/Header";
-import "../css/home.css";
+import "../styles/home.css";
 import { useState } from "react";
 
 const Home = () => {

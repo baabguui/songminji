@@ -1,4 +1,4 @@
-import "../css/works.css";
+import "../styles/works.css";
 const Work = (props: {
     currentWork: {
         id: number;
@@ -23,7 +23,7 @@ const Work = (props: {
                 alt="work"
             />
             <p>
-                {props.currentWork.title},{props.currentWork.media},
+                {props.currentWork.title}, {props.currentWork.media},{" "}
                 {props.currentWork.size}
             </p>
         </div>

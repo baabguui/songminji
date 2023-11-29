@@ -47,27 +47,37 @@
 
 /* 목록 */
 .listContainer {
-    overflow: scroll;
+    overflow-y: scroll;
     display: flex;
     align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     width: 15vw;
     height: 80vh;
-    margin-left: 5vw;
+}
+
+.listContainer::-webkit-scrollbar {
+    width: 7px;
+}
+
+.listContainer::-webkit-scrollbar-thumb {
+    height: 20%;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 10px;
 }
 
 .currentListItem {
     object-fit: contain;
     margin-top: 1vh;
     width: auto;
-    height: 10vh;
+    height: 13vh;
 }
 
 .listItem {
     object-fit: contain;
     margin-top: 1vh;
     width: auto;
-    height: 8vh;
+    height: 10vh;
 }
 
 .listItem:hover {
@@ -79,9 +89,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5vh;
-    width: 60vw;
+    margin-top: 3vh;
+    width: 75vw;
     height: 70vh;
+    font-family: "NotoSansKR", sans-serif;
 }
 
 .work {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../routes";
-import "../css/header.css";
+import "../styles/header.css";
 import MiniHeader from "./MiniHeader";
 
 const Header = (props: { isHome: Boolean }) => {

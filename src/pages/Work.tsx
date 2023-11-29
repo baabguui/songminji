@@ -5,7 +5,7 @@ import imageData from "../routes/imageData.json";
 
 import Header from "../components/Header";
 import WorkCard from "../components/WorkCard";
-import "../css/works.css";
+import "../styles/works.css";
 
 const Work = () => {
     const { id } = useParams();

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import imageData from "../routes/imageData.json";
 import Header from "../components/Header";
 
-import "../css/works.css";
+import "../styles/works.css";
 
 const Works = () => {
     const imageList = [...imageData.three];
@@ -17,7 +17,7 @@ const Works = () => {
                     return (
                         <Link to={`/works/${work.id}`} key={work.id}>
                             <img
-                                className="work"
+                                className="workPreview"
                                 src={
                                     process.env.PUBLIC_URL +
                                     "/images/2023/" +
