@@ -15,23 +15,29 @@ const MiniHeader = () => {
                 }}
             />
             {isOpen ? (
-                <div>
+                <div
+                    style={{
+                        display: "flex",
+                        width: "20vw",
+                        alignItems: "center",
+                    }}
+                >
                     <Link to={ROUTES.Works.path}>
                         <img
                             src={require("../assets/Works.png")}
-                            style={{ width: "10%" }}
+                            style={{ width: "100%" }}
                         />
                     </Link>
                     <Link to={ROUTES.Exhibitions.path}>
                         <img
                             src={require("../assets/Exhibitions.png")}
-                            style={{ width: "15%" }}
+                            style={{ width: "100%" }}
                         />
                     </Link>
                     <Link to={ROUTES.CV.path}>
                         <img
                             src={require("../assets/CV.png")}
-                            style={{ width: "5%" }}
+                            style={{ width: "100%" }}
                         />
                     </Link>
                 </div>

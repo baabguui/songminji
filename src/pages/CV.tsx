@@ -1,13 +1,13 @@
 import Header from "../components/Header";
-import "../css/CV.css";
+import "../styles/CV.css";
 
 const CV = () => {
     return (
         <>
             <Header isHome={false} />
             <div className="CVContainer">
-                SONG MIN JI <br /> <br />
-                Lives and Works in Seoul <br /> <br /> <br />
+                SONG MIN JI <br />
+                Lives and Works in Seoul <br /> <br />
                 songminji1918@gmail.com <br /> <br /> <br />
                 학력 <br /> <br />
                 2021 서울과학기술대학교 조형예술과 학사 졸업
