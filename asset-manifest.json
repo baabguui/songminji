@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/songminji/static/css/main.9fe28bdd.css",
-    "main.js": "/songminji/static/js/main.86f26a2f.js",
+    "main.js": "/songminji/static/js/main.61fdbf36.js",
     "static/media/background.png": "/songminji/static/media/background.50162211b32333ce466a.png",
     "static/media/two.png": "/songminji/static/media/two.8cdc1bdabb005d3858f8.png",
     "static/media/plates.png": "/songminji/static/media/plates.6adbdd2a1007c328b93f.png",
@@ -15,10 +15,10 @@
     "static/media/hover.cur": "/songminji/static/media/hover.155a48468588f9e75079.cur",
     "index.html": "/songminji/index.html",
     "main.9fe28bdd.css.map": "/songminji/static/css/main.9fe28bdd.css.map",
-    "main.86f26a2f.js.map": "/songminji/static/js/main.86f26a2f.js.map"
+    "main.61fdbf36.js.map": "/songminji/static/js/main.61fdbf36.js.map"
   },
   "entrypoints": [
     "static/css/main.9fe28bdd.css",
-    "static/js/main.86f26a2f.js"
+    "static/js/main.61fdbf36.js"
   ]
 }
