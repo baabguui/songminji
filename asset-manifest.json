@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/songminji/static/css/main.9fe28bdd.css",
-    "main.js": "/songminji/static/js/main.61fdbf36.js",
-    "static/media/background.png": "/songminji/static/media/background.50162211b32333ce466a.png",
-    "static/media/two.png": "/songminji/static/media/two.8cdc1bdabb005d3858f8.png",
-    "static/media/plates.png": "/songminji/static/media/plates.6adbdd2a1007c328b93f.png",
-    "static/media/badee.png": "/songminji/static/media/badee.73eea266d469187b2303.png",
-    "static/media/chopsticks.png": "/songminji/static/media/chopsticks.2dee8465190c31a23484.png",
-    "static/media/bottle.png": "/songminji/static/media/bottle.0b715ebde9d0364897d1.png",
-    "static/media/Exhibitions.png": "/songminji/static/media/Exhibitions.7e2a1a35809913e9ce1c.png",
-    "static/media/Works.png": "/songminji/static/media/Works.22c812c44557dde143e9.png",
-    "static/media/home.png": "/songminji/static/media/home.c9b72353d5f60f093dda.png",
-    "static/media/cur.cur": "/songminji/static/media/cur.6e19e5dccba2dc14ef7b.cur",
-    "static/media/hover.cur": "/songminji/static/media/hover.155a48468588f9e75079.cur",
-    "index.html": "/songminji/index.html",
-    "main.9fe28bdd.css.map": "/songminji/static/css/main.9fe28bdd.css.map",
-    "main.61fdbf36.js.map": "/songminji/static/js/main.61fdbf36.js.map"
+    "main.css": "/static/css/main.f775596a.css",
+    "main.js": "/static/js/main.a231774a.js",
+    "static/media/background.png": "/static/media/background.50162211b32333ce466a.png",
+    "static/media/two.png": "/static/media/two.8cdc1bdabb005d3858f8.png",
+    "static/media/plates.png": "/static/media/plates.6adbdd2a1007c328b93f.png",
+    "static/media/badee.png": "/static/media/badee.73eea266d469187b2303.png",
+    "static/media/chopsticks.png": "/static/media/chopsticks.2dee8465190c31a23484.png",
+    "static/media/bottle.png": "/static/media/bottle.0b715ebde9d0364897d1.png",
+    "static/media/Exhibitions.png": "/static/media/Exhibitions.7e2a1a35809913e9ce1c.png",
+    "static/media/Works.png": "/static/media/Works.22c812c44557dde143e9.png",
+    "static/media/home.png": "/static/media/home.c9b72353d5f60f093dda.png",
+    "static/media/cur.cur": "/static/media/cur.6e19e5dccba2dc14ef7b.cur",
+    "static/media/hover.cur": "/static/media/hover.155a48468588f9e75079.cur",
+    "index.html": "/index.html",
+    "main.f775596a.css.map": "/static/css/main.f775596a.css.map",
+    "main.a231774a.js.map": "/static/js/main.a231774a.js.map"
   },
   "entrypoints": [
-    "static/css/main.9fe28bdd.css",
-    "static/js/main.61fdbf36.js"
+    "static/css/main.f775596a.css",
+    "static/js/main.a231774a.js"
   ]
 }
