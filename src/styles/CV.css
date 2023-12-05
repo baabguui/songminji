@@ -1,10 +1,10 @@
 .CVContainer {
-    position: relative;
-    width: 100vw;
-    height: 85vh;
-    top: 15vh;
-    left: 5vw;
-    font-size: 0.8rem;
-    cursor: url(../../public/assets/icons/cur.cur), auto !important;
-    font-family: "Noto Sans KR", sans-serif;
+  position: relative;
+  width: 100vw;
+  height: 85vh;
+  top: 15vh;
+  left: 5vw;
+  font-size: 0.8rem;
+  cursor: url(../../public/assets/icons/cur.cur), auto !important;
+  font-family: "Noto Sans KR", sans-serif;
 }

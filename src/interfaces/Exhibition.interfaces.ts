@@ -1,8 +1,8 @@
 export default interface Exhibition {
-    title: string;
+  title: string;
+  id: number;
+  place: string;
+  works: {
     id: number;
-    place: string;
-    works: {
-        id: number;
-    }[];
+  }[];
 }

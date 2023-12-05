@@ -1,9 +1,9 @@
 .headerContainer {
-    position: fixed;
-    display: flex;
-    z-index: 1;
-    top: 2vh;
-    left: 2vw;
-    width: 100%;
-    cursor: url(../../public/assets/icons/cur.cur), auto !important;
+  position: fixed;
+  display: flex;
+  z-index: 1;
+  top: 2vh;
+  left: 2vw;
+  width: 100%;
+  cursor: url(../../public/assets/icons/cur.cur), auto !important;
 }

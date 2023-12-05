@@ -4,16 +4,16 @@ import Home from "./pages/Home";
 import "./styles/app.css";
 
 function App() {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                {ROUTES_LIST.map(({ path, Component }, idx) => (
-                    <Route key={idx} path={path} element={<Component />} />
-                ))}
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {ROUTES_LIST.map(({ path, Component }, idx) => (
+          <Route key={idx} path={path} element={<Component />} />
+        ))}
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
