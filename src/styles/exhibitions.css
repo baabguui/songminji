@@ -11,7 +11,7 @@
 
     margin-left: auto;
     margin-right: auto;
-    cursor: url(../assets/cur.cur), auto !important;
+    cursor: url(../../public/assets/icons/cur.cur), auto !important;
 }
 
 .exhibitionListItem {
@@ -41,7 +41,7 @@
     width: 100vw;
     height: auto;
     top: 10vh;
-    cursor: url(../assets/cur.cur), auto !important;
+    cursor: url(../../public/assets/icons/cur.cur), auto !important;
     font-family: "Noto Sans KR", sans-serif;
 }
 

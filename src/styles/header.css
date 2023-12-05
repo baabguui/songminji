@@ -5,5 +5,5 @@
     top: 2vh;
     left: 2vw;
     width: 100%;
-    cursor: url(../assets/cur.cur), auto !important;
+    cursor: url(../../public/assets/icons/cur.cur), auto !important;
 }

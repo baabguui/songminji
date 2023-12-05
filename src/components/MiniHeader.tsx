@@ -7,7 +7,7 @@ const MiniHeader = () => {
     return (
         <div style={{ display: "flex", alignItems: "center" }}>
             <img
-                src={require("../assets/two.png")}
+                src={`assets/icons/two.png`}
                 alt="miniheader"
                 style={{ width: "4vw" }}
                 onClick={() => {
@@ -19,24 +19,24 @@ const MiniHeader = () => {
                     style={{
                         display: "flex",
                         width: "20vw",
-                        alignItems: "center",
+                        alignItems: "end",
                     }}
                 >
                     <Link to={ROUTES.Works.path}>
                         <img
-                            src={require("../assets/Works.png")}
+                            src={`assets/icons/Works.png`}
                             style={{ width: "100%" }}
                         />
                     </Link>
                     <Link to={ROUTES.Exhibitions.path}>
                         <img
-                            src={require("../assets/Exhibitions.png")}
+                            src={`assets/icons/Exhibitions.png`}
                             style={{ width: "100%" }}
                         />
                     </Link>
                     <Link to={ROUTES.CV.path}>
                         <img
-                            src={require("../assets/CV.png")}
+                            src={`assets/icons/CV.png`}
                             style={{ width: "100%" }}
                         />
                     </Link>

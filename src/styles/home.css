@@ -1,5 +1,5 @@
 .background {
-    background-image: url("../assets/background.png");
+    background-image: url("../../public/assets/icons/background.png");
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -8,7 +8,7 @@
 }
 
 .works {
-    background-image: url("../assets/plates.png");
+    background-image: url("../../public/assets/icons/plates.png");
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -20,15 +20,15 @@
 }
 
 .works:hover {
-    background-image: url("../assets/Works.png");
+    background-image: url("../../public/assets/icons/Works.png");
     background-size: 100%;
     top: 33vh;
     height: 36vh;
-    cursor: url(../assets/hover.cur), auto;
+    cursor: url(../../public/assets/icons/hover.cur), auto;
 }
 
 .exhibitions {
-    background-image: url("../assets/badee.png");
+    background-image: url("../../public/assets/icons/badee.png");
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -39,14 +39,14 @@
     top: 40vh;
 }
 .exhibitions:hover {
-    background-image: url("../assets/Exhibitions.png");
+    background-image: url("../../public/assets/icons/Exhibitions.png");
     background-size: 80%;
     top: 44vh;
-    cursor: url(../assets/hover.cur), auto;
+    cursor: url(../../public/assets/icons/hover.cur), auto;
 }
 
 .cv {
-    background-image: url("../assets/bottle.png");
+    background-image: url("../../public/assets/icons/bottle.png");
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -58,14 +58,14 @@
 }
 
 .cv:hover {
-    background-image: url("../assets/CV.png");
+    background-image: url("../../public/assets/icons/CV.png");
     background-size: 60%;
     top: 85vh;
-    cursor: url(../assets/hover.cur), auto;
+    cursor: url(../../public/assets/icons/hover.cur), auto;
 }
 
 .link {
-    background-image: url("../assets/chopsticks.png");
+    background-image: url("../../public/assets/icons/chopsticks.png");
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -77,5 +77,5 @@
 }
 
 .link:hover {
-    cursor: url(../assets/hover.cur), auto;
+    cursor: url(../../public/assets/icons/hover.cur), auto;
 }

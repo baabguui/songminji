@@ -5,6 +5,6 @@
     top: 15vh;
     left: 5vw;
     font-size: 0.8rem;
-    cursor: url(../assets/cur.cur), auto !important;
+    cursor: url(../../public/assets/icons/cur.cur), auto !important;
     font-family: "Noto Sans KR", sans-serif;
 }

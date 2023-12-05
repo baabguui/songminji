@@ -13,9 +13,13 @@ const CV = () => {
                 2021 서울과학기술대학교 조형예술과 학사 졸업
                 <br /> <br /> <br />
                 단체전 <br /> <br />
-                2023, 4 needles, 에브리아트, 서울 2023 QUEST, 갤러리 인 HQ, 서울{" "}
+                2023 4 needles, 에브리아트, 서울 <br />
+                <br />
+                2023 QUEST, 갤러리 인 HQ, 서울
                 <br /> <br />
-                2022 Peer to Peer, 온수공간, 서울 2020 미리 찌는 살, WESS, 서울{" "}
+                2022 Peer to Peer, 온수공간, 서울 <br />
+                <br />
+                2020 미리 찌는 살, WESS, 서울
                 <br /> <br />
                 2020 인류의 조상은 바나나, 가변크기, 서울 <br /> <br /> <br />
                 Education <br /> <br />

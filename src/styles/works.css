@@ -1,11 +1,14 @@
 /* works 메인 페이지 */
 .worksWrap {
     position: relative;
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     flex-wrap: wrap;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
-    column-gap: 3px;
+    /* column-gap: 3px; */
+    row-gap: 7vh;
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
@@ -13,7 +16,7 @@
     width: 75vw;
     height: 75vh;
     top: 15vh;
-    cursor: url(../assets/cur.cur), auto !important;
+    cursor: url(../../public/assets/icons/cur.cur), auto !important;
 }
 
 .workPreview {
@@ -29,7 +32,7 @@
     width: 12vw;
     transform: scale(1.5);
     transition: transform 0.5s;
-    cursor: url(../assets/hover.cur), auto;
+    cursor: url(../../public/assets/icons/hover.cur), auto;
 }
 
 /* work 페이지 */
@@ -42,7 +45,7 @@
     top: 15vh;
     margin-left: auto;
     margin-right: auto;
-    cursor: url(../assets/cur.cur), auto !important;
+    cursor: url(../../public/assets/icons/cur.cur), auto !important;
 }
 
 /* 목록 */
@@ -81,7 +84,7 @@
 }
 
 .listItem:hover {
-    cursor: url(../assets/hover.cur), auto;
+    cursor: url(../../public/assets/icons/hover.cur), auto;
 }
 
 /* 그림 */
