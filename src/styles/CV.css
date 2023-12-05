@@ -4,7 +4,15 @@
   height: 85vh;
   top: 15vh;
   left: 5vw;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   cursor: url(../../public/assets/icons/cur.cur), auto !important;
   font-family: "Noto Sans KR", sans-serif;
+}
+@media all and (max-width: 767px) {
+  .CVContainer {
+    left: 1vw;
+    width: 90vw;
+    top: 10vh;
+    font-size: 0.6rem;
+  }
 }

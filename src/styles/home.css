@@ -79,3 +79,12 @@
 .link:hover {
   cursor: url(../../public/assets/icons/hover.cur), auto;
 }
+
+@media all and (max-width: 767px) {
+  .works:hover {
+    top: 23vh;
+  }
+  .cv:hover {
+    left: 75vw;
+  }
+}

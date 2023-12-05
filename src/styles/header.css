@@ -4,6 +4,34 @@
   z-index: 1;
   top: 2vh;
   left: 2vw;
-  width: 100%;
   cursor: url(../../public/assets/icons/cur.cur), auto !important;
+}
+
+.miniHeaderContainer {
+  display: flex;
+  align-items: center;
+}
+
+.miniHeaderIcon {
+  width: 4vw;
+}
+
+.openMiniHeaderMenu {
+  display: flex;
+  width: 20vw;
+  align-items: flex-end;
+}
+
+@media all and (max-width: 767px) {
+  .headerIcon {
+    width: 50vw;
+  }
+  .miniHeaderIcon {
+    width: 8vw;
+    padding-right: 1vw;
+  }
+  .openMiniHeaderMenu {
+    width: 35vw;
+    column-gap: 1vw;
+  }
 }

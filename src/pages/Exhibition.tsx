@@ -13,7 +13,7 @@ const Exhibition = () => {
     <>
       <Header isHome={false} />
       <div className="exhibitionContainer">
-        <p style={{ fontSize: "1.3rem" }}>
+        <p>
           {currentExhibition?.title},{currentExhibition?.place}
         </p>
         {currentExhibition?.works.map((work) => {

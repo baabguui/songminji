@@ -1,13 +1,11 @@
 /* works 메인 페이지 */
 .worksWrap {
   position: relative;
-  /* display: flex; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   flex-wrap: wrap;
   justify-items: center;
   align-items: center;
-  /* column-gap: 3px; */
   row-gap: 7vh;
   margin-left: auto;
   margin-right: auto;
@@ -104,10 +102,13 @@
   object-fit: contain;
 }
 
-.next-button {
+.nextButton {
   position: relative;
+  margin-left: 5vw;
+  height: 20px;
+  margin-top: 45vh;
 }
-.next-button::after {
+.nextButton::after {
   position: absolute;
   top: 15vh;
   content: "";
@@ -116,4 +117,76 @@
   border-top: 1px solid #000;
   border-right: 1px solid #000;
   transform: rotate(135deg);
+}
+
+@media all and (max-width: 767px) {
+  .worksWrap {
+    top: 10vh;
+    row-gap: 0vh;
+    width: 90vw;
+    height: 85vh;
+  }
+  .workPreview {
+    transform: scale(1.2);
+  }
+  .worksContainer {
+    flex-direction: column-reverse;
+    align-items: center;
+    top: 5vh;
+    width: 90vw;
+    height: 90vh;
+  }
+
+  .listContainer {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: 20vh;
+  }
+
+  .listContainer::-webkit-scrollbar {
+    width: auto;
+    height: 5px;
+  }
+
+  .currentListItem {
+    width: 13vw;
+    height: auto;
+    margin-top: 0vh;
+    margin-left: 1vw;
+  }
+
+  .listItem {
+    width: 10vw;
+    height: auto;
+    margin-top: 0vh;
+    margin-left: 1vw;
+  }
+
+  .workContainer {
+    justify-content: end;
+    width: 70vw;
+    height: 65vh;
+    font-size: 0.9rem;
+  }
+
+  .work {
+    max-width: 70vw;
+    max-height: 55vh;
+  }
+
+  .nextButton {
+    display: none;
+    height: 10px;
+    margin-top: 0vh;
+  }
+
+  .nextButton::after {
+    display: none;
+    top: 0vh;
+    width: 10px;
+    height: 10px;
+  }
 }

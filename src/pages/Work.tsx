@@ -69,12 +69,7 @@ const Work = () => {
           handleOnWheel={handleOnWheel}
         />
         <span
-          className="next-button"
-          style={{
-            marginLeft: "5vw",
-            height: "20px",
-            marginTop: "45vh",
-          }}
+          className="nextButton"
           onClick={() => {
             navigate(
               `/works/${numberID + 1 > imageListLength - 1 ? 0 : numberID + 1}`,

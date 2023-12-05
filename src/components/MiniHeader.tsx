@@ -2,26 +2,22 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../routes";
 
+import "../styles/header.css";
+
 const MiniHeader = () => {
   const [isOpen, setOpen] = useState<Boolean>(false);
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <div className="miniHeaderContainer">
       <img
+        className="miniHeaderIcon"
         src={`assets/icons/two.png`}
         alt="miniheader"
-        style={{ width: "4vw" }}
         onClick={() => {
           setOpen(!isOpen);
         }}
       />
       {isOpen ? (
-        <div
-          style={{
-            display: "flex",
-            width: "20vw",
-            alignItems: "end",
-          }}
-        >
+        <div className="openMiniHeaderMenu">
           <Link to={ROUTES.Works.path}>
             <img src={`assets/icons/Works.png`} style={{ width: "100%" }} />
           </Link>
