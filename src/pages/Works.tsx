@@ -18,12 +18,7 @@ const Works = () => {
                         <Link to={`/works/${work.id}`} key={work.id}>
                             <img
                                 className="workPreview"
-                                src={
-                                    process.env.PUBLIC_URL +
-                                    "/images/2023/" +
-                                    work.id +
-                                    "_preview.png"
-                                }
+                                src={`/assets/2023/${work.id}_preview.png`}
                                 alt="preview"
                                 style={{ width: `${width}vw` }}
                             />

@@ -14,12 +14,7 @@ const Work = (props: {
         <div className="workContainer" onWheel={props.handleOnWheel}>
             <img
                 className="work"
-                src={
-                    process.env.PUBLIC_URL +
-                    "/images/2023/" +
-                    props.currentWork.id +
-                    ".png"
-                }
+                src={`/assets/2023/${props.currentWork.id}.png`}
                 alt="work"
             />
             <p>

@@ -20,14 +20,7 @@ const Exhibition = () => {
                     return (
                         <img
                             className="exhibitionItem"
-                            src={
-                                process.env.PUBLIC_URL +
-                                "/images/2023/exhibitions/" +
-                                currentExhibition.title +
-                                "/" +
-                                work.id +
-                                ".jpg"
-                            }
+                            src={`/assets/2023/exhibitions/${currentExhibition.title}/${work.id}.jpg`}
                             alt="foreground"
                         />
                     );

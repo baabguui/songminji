@@ -7,7 +7,7 @@ const Header = (props: { isHome: Boolean }) => {
     return (
         <div className="headerContainer">
             <Link to={ROUTES.Home.path}>
-                <img src={require("../assets/home.png")} alt="songminji" />
+                <img src={`/assets/icons/home.png`} alt="songminji" />
             </Link>
             {props.isHome ? <></> : <MiniHeader />}
         </div>

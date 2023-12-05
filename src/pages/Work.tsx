@@ -54,12 +54,7 @@ const Work = () => {
                                         ? "currentListItem"
                                         : "listItem"
                                 }
-                                src={
-                                    process.env.PUBLIC_URL +
-                                    "/images/2023/" +
-                                    image.id +
-                                    "_preview.png"
-                                }
+                                src={`/assets/2023/${image.id}_preview.png`}
                                 alt="preview"
                                 onClick={() => {
                                     setImageIndex(image.id - 1);

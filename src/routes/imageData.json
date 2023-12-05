@@ -1,116 +1,116 @@
 {
-    "three": [
-        {
-            "id": 1,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "90 x 72cm",
-            "height": 90,
-            "width": 72
-        },
-        {
-            "id": 2,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "80 x 65cm",
-            "height": 80,
-            "width": 65
-        },
-        {
-            "id": 3,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "145 x 97cm",
-            "height": 145,
-            "width": 97
-        },
-        {
-            "id": 4,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "45 x 45cm",
-            "height": 45,
-            "width": 45
-        },
-        {
-            "id": 5,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "116 x 91cm",
-            "height": 116,
-            "width": 91
-        },
-        {
-            "id": 6,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "65 x 50cm",
-            "height": 65,
-            "width": 50
-        },
-        {
-            "id": 7,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "45 x 33cm",
-            "height": 45,
-            "width": 33
-        },
-        {
-            "id": 8,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "45 x 45cm",
-            "height": 45,
-            "width": 45
-        },
-        {
-            "id": 9,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "60 x 72cm",
-            "height": 60,
-            "width": 72
-        },
-        {
-            "id": 10,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "64 x 53cm",
-            "height": 64,
-            "width": 53
-        },
-        {
-            "id": 11,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "90 x 72cm",
-            "height": 90,
-            "width": 72
-        },
-        {
-            "id": 12,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "145 x 112cm",
-            "height": 145,
-            "width": 112
-        },
-        {
-            "id": 13,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "145 x 97cm",
-            "height": 145,
-            "width": 97
-        },
-        {
-            "id": 14,
-            "title": "untitled",
-            "media": "oil on canvas",
-            "size": "145 x 227cm",
-            "height": 145,
-            "width": 227
-        }
-    ]
+  "three": [
+    {
+      "id": 1,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "90 x 72cm",
+      "height": 90,
+      "width": 72
+    },
+    {
+      "id": 2,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "80 x 65cm",
+      "height": 80,
+      "width": 65
+    },
+    {
+      "id": 3,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "145 x 97cm",
+      "height": 145,
+      "width": 97
+    },
+    {
+      "id": 4,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "45 x 45cm",
+      "height": 45,
+      "width": 45
+    },
+    {
+      "id": 5,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "116 x 91cm",
+      "height": 116,
+      "width": 91
+    },
+    {
+      "id": 6,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "65 x 50cm",
+      "height": 65,
+      "width": 50
+    },
+    {
+      "id": 7,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "45 x 33cm",
+      "height": 45,
+      "width": 33
+    },
+    {
+      "id": 8,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "45 x 45cm",
+      "height": 45,
+      "width": 45
+    },
+    {
+      "id": 9,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "60 x 72cm",
+      "height": 60,
+      "width": 72
+    },
+    {
+      "id": 10,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "64 x 53cm",
+      "height": 64,
+      "width": 53
+    },
+    {
+      "id": 11,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "90 x 72cm",
+      "height": 90,
+      "width": 72
+    },
+    {
+      "id": 12,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "145 x 112cm",
+      "height": 145,
+      "width": 112
+    },
+    {
+      "id": 13,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "145 x 97cm",
+      "height": 145,
+      "width": 97
+    },
+    {
+      "id": 14,
+      "title": "untitled",
+      "media": "oil on canvas",
+      "size": "145 x 227cm",
+      "height": 145,
+      "width": 227
+    }
+  ]
 }
