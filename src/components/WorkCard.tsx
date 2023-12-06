@@ -1,28 +1,25 @@
 import "../styles/works.css";
-const Work = (props: {
-  currentWork: {
-    id: number;
-    title: string;
-    media: string;
-    size: string;
-    width: number;
-    height: number;
-  };
+import IWork from "../interfaces/Work.interface";
+
+const WorkCard = ({
+  currentWork,
+  handleOnWheel,
+}: {
+  currentWork: IWork;
   handleOnWheel: any;
 }) => {
   return (
-    <div className="workContainer" onWheel={props.handleOnWheel}>
+    <div className="workContainer" onWheel={handleOnWheel}>
       <img
         className="work"
-        src={`/assets/2023/${props.currentWork.id}.png`}
+        src={`/assets/2023/${currentWork.id}.png`}
         alt="work"
       />
       <p>
-        {props.currentWork.title}, {props.currentWork.media},{" "}
-        {props.currentWork.size}
+        {currentWork.title}, {currentWork.media}, {currentWork.size}
       </p>
     </div>
   );
 };
 
-export default Work;
+export default WorkCard;
