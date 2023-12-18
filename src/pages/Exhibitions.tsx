@@ -1,10 +1,10 @@
 import Header from "../components/Header";
 import ExhibitionCard from "../components/ExhibitionCard";
-import exhibitionData from "../routes/exhibitionData.json";
+import exhibitionData from "../data/exhibitionData.json";
 import "../styles/exhibitions.css";
 
 const Exhibitions = () => {
-  const exhibitionList = [...exhibitionData.three];
+  const exhibitionList = exhibitionData.three;
   return (
     <>
       <Header isHome={false} />

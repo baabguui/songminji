@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import exhibitionData from "../routes/exhibitionData.json";
+import exhibitionData from "../data/exhibitionData.json";
 import "../styles/exhibitions.css";
 import Header from "../components/Header";
 

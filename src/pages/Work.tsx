@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useCallback } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import _debounce from "lodash/debounce";
-import imageData from "../routes/imageData.json";
+import imageData from "../data/imageData.json";
+import React from "react";
 
 import Header from "../components/Header";
 import WorkCard from "../components/WorkCard";
@@ -9,61 +10,62 @@ import "../styles/works.css";
 
 const Work = () => {
   const { id } = useParams();
-  const imageList = [...imageData.three];
-  const [imageIndex, setImageIndex] = useState<number>(0);
 
-  useEffect(() => {
-    const currentWork = imageList.find((work) => {
-      return work.id === Number(id);
-    });
-    setImageIndex(() => {
-      return currentWork ? currentWork.id - 1 : 0;
-    });
-  }, []);
+  const numberID = Number(id);
+  const navigate = useNavigate();
+
+  const imageList = imageData.three;
+  const imageListLength = imageList.length;
 
   const handleOnWheel = useCallback(
-    _debounce((e: WheelEvent) => {
-      if (e.deltaY > 0) {
-        setImageIndex((prev) => {
-          if (!imageList[prev + 1]) {
-            return 0;
-          }
-          return prev + 1;
-        });
-      } else {
-        setImageIndex((prev) => {
-          if (!imageList[prev - 1]) {
-            return imageList.length - 1;
-          }
-          return prev - 1;
-        });
-      }
+    _debounce((e: React.WheelEvent) => {
+      const nextIndex =
+        e.deltaY > 0
+          ? numberID + 1 > imageListLength - 1
+            ? 0
+            : numberID + 1
+          : numberID - 1 < 0
+            ? imageListLength - 1
+            : numberID - 1;
+
+      navigate(`/works/${nextIndex}`);
     }, 50),
     [],
   );
+
+  const handleClickImage = (imageID: number) => {
+    navigate(`/works/${imageID}`);
+  };
+
   return (
     <>
       <Header isHome={false} />
       <div className="worksContainer">
         <div className="listContainer">
-          {imageList.map((image) => {
-            return (
+          {imageList.map((image) => (
+            <picture
+              key={image.id}
+              className={
+                image.id - 1 === numberID ? "currentListItem" : "listItem"
+              }
+              onClick={() => handleClickImage(image.id)}
+            >
+              <source
+                srcSet={`/assets/2023/${image.id}_preview.webp`}
+                type="image/webp"
+              />
               <img
                 className={
-                  image.id - 1 === imageIndex ? "currentListItem" : "listItem"
+                  image.id - 1 === numberID ? "currentListItem" : "listItem"
                 }
                 src={`/assets/2023/${image.id}_preview.png`}
                 alt="preview"
-                onClick={() => {
-                  setImageIndex(image.id - 1);
-                }}
-                key={image.id}
               />
-            );
-          })}
+            </picture>
+          ))}
         </div>
         <WorkCard
-          currentWork={imageList[imageIndex]}
+          currentWork={imageList[numberID - 1]}
           handleOnWheel={handleOnWheel}
         />
         <span
@@ -74,12 +76,9 @@ const Work = () => {
             marginTop: "45vh",
           }}
           onClick={() => {
-            setImageIndex((prev) => {
-              if (!imageList[prev + 1]) {
-                return 0;
-              }
-              return prev + 1;
-            });
+            navigate(
+              `/works/${numberID + 1 > imageListLength - 1 ? 0 : numberID + 1}`,
+            );
           }}
         ></span>
       </div>
