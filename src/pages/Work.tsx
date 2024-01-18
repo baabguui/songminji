@@ -45,9 +45,7 @@ const Work = () => {
           {imageList.map((image) => (
             <picture
               key={image.id}
-              className={
-                image.id - 1 === numberID ? "currentListItem" : "listItem"
-              }
+              className={image.id === numberID ? "currentListItem" : "listItem"}
               onClick={() => handleClickImage(image.id)}
             >
               <source
@@ -56,7 +54,7 @@ const Work = () => {
               />
               <img
                 className={
-                  image.id - 1 === numberID ? "currentListItem" : "listItem"
+                  image.id === numberID ? "currentListItem" : "listItem"
                 }
                 src={`/assets/2023/${image.id}_preview.png`}
                 alt="preview"
@@ -65,7 +63,7 @@ const Work = () => {
           ))}
         </div>
         <WorkCard
-          currentWork={imageList[numberID - 1]}
+          currentWork={imageList[numberID]}
           handleOnWheel={handleOnWheel}
         />
         <span
