@@ -18,7 +18,10 @@ const ExhibitionCard = (props: {
         <img
           className="poster"
           src={
-            "/assets/2023/exhibitions/" + props.exhibition.title + "/1" + ".jpg"
+            "/assets/2023/exhibitions/" +
+            props.exhibition.title +
+            "/1_preview" +
+            ".jpg"
           }
           alt="poster"
         />
