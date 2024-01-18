@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import "../styles/CV.css";
 
 const CV = () => {
@@ -12,6 +13,11 @@ const CV = () => {
         학력 <br /> <br />
         2021 서울과학기술대학교 조형예술과 학사 졸업
         <br /> <br /> <br />
+        개인전 <br />
+        <br />
+        2024 WELL, 인터럼, 서울 <br />
+        <br />
+        <br />
         단체전 <br /> <br />
         2023 4 needles, 에브리아트, 서울 <br />
         <br />
@@ -25,13 +31,21 @@ const CV = () => {
         Education <br /> <br />
         2021 BFA Fine Arts, Seoul National University of Science & Technology,
         Seoul <br /> <br /> <br />
-        Group Exhibitions <br /> <br /> 2023 4 needles, Every Art, Seoul <br />{" "}
+        Solo Exhibitions
+        <br />
+        <br />
+        2024 WELL, INTERIM, Seoul
+        <br />
+        <br />
+        <br />
+        Group Exhibitions <br /> <br /> 2023 4 needles, Every Art, Seoul <br />
         <br />
         2023 QUEST, Gallery IN HQ, Seoul <br /> <br />
         2022 Peer to Peer, ONSU GONG-GAN, Seoul <br /> <br />
         2020 Fatten for Tomorrow, WESS, Seoul <br /> <br /> 2020 인류의 조상은
         바나나, Dimension Variable, Seoul
       </div>
+      <Footer />
     </>
   );
 };
