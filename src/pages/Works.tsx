@@ -4,6 +4,7 @@ import imageData from "../data/imageData.json";
 import Header from "../components/Header";
 
 import "../styles/works.css";
+import Footer from "../components/Footer";
 
 const Works = () => {
   const imageList = [...imageData.three];
@@ -32,6 +33,7 @@ const Works = () => {
           );
         })}
       </div>
+      <Footer />
     </>
   );
 };

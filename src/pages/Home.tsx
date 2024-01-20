@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "../routes";
 import Header from "../components/Header";
 import "../styles/home.css";
+import PopUp from "../components/PopUp";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const isHome = true;
@@ -21,6 +23,13 @@ const Home = () => {
         <div className="cv" />
       </Link>
 
+      <PopUp
+        img={"/assets/2023/exhibitions/Well/well.png"}
+        url={
+          "https://www.instagram.com/p/C19O01sJnCC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        }
+      />
+
       <div>
         <a
           className="link"
@@ -29,6 +38,7 @@ const Home = () => {
           rel="noopener noreferrer"
         ></a>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,0 +1,14 @@
+.copyright {
+  position: fixed;
+  top: 95vh;
+  left: 91vw;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.7rem;
+}
+
+@media all and (max-width: 767px) {
+  .copyright {
+    top: 95vh;
+    left: 40vw;
+  }
+}

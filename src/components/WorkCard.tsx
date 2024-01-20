@@ -1,5 +1,6 @@
 import "../styles/works.css";
 import IWork from "../interfaces/Work.interface";
+import Footer from "./Footer";
 
 const WorkCard = ({
   currentWork,
@@ -18,6 +19,7 @@ const WorkCard = ({
       <p>
         {currentWork.title}, {currentWork.media}, {currentWork.size}
       </p>
+      <Footer />
     </div>
   );
 };
