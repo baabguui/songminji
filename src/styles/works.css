@@ -152,7 +152,7 @@
   }
 
   .currentListItem {
-    width: 13vw;
+    width: 18vw;
     height: auto;
     margin-top: 0vh;
     margin-left: 1vw;
@@ -166,15 +166,15 @@
   }
 
   .workContainer {
-    justify-content: end;
+    justify-content: center;
     width: 70vw;
     height: 65vh;
     font-size: 0.9rem;
   }
 
   .work {
-    max-width: 70vw;
-    max-height: 55vh;
+    max-width: 75vw;
+    max-height: 60vh;
   }
 
   .nextButton {

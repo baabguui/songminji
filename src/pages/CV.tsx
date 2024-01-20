@@ -44,6 +44,9 @@ const CV = () => {
         2022 Peer to Peer, ONSU GONG-GAN, Seoul <br /> <br />
         2020 Fatten for Tomorrow, WESS, Seoul <br /> <br /> 2020 인류의 조상은
         바나나, Dimension Variable, Seoul
+        <br />
+        <br />
+        <p />
       </div>
       <Footer />
     </>
