@@ -8,7 +8,7 @@
   position: relative;
   width: 95vw;
   height: auto;
-  top: 15vh;
+  top: 18vh;
 
   margin-left: auto;
   margin-right: auto;
@@ -23,7 +23,7 @@
   align-self: center;
   width: auto;
   height: 30vh;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Pretendard Variable", sans-serif;
 }
 
 .poster {
@@ -42,16 +42,23 @@
   align-items: center;
   width: 100vw;
   height: auto;
-  top: 10vh;
+  top: 14vh;
   cursor: url(../../public/assets/icons/cur.cur), auto !important;
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 1.3rem;
+  font-family: "Pretendard Variable", sans-serif;
+  font-size: 1.1rem;
+}
+
+.exhibitionInfo {
+  text-align: center;
+  margin-bottom: 5vh;
+  line-height: 0.9rem;
+  height: 15vh;
 }
 
 .exhibitionItem {
-  margin-top: 5vh;
+  margin-bottom: 5vh;
   max-width: 50vw;
-  max-height: 70vh;
+  max-height: 100vh;
   object-fit: contain;
 }
 

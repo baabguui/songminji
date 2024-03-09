@@ -5,7 +5,7 @@ import "../styles/exhibitions.css";
 import Footer from "../components/Footer";
 
 const Exhibitions = () => {
-  const exhibitionList = exhibitionData.three;
+  const exhibitionList = exhibitionData.exhibitions;
   return (
     <>
       <Header isHome={false} />

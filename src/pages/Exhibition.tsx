@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 const Exhibition = () => {
   const { id } = useParams();
-  const currentExhibition = exhibitionData.three.find((exhibition) => {
+  const currentExhibition = exhibitionData.exhibitions.find((exhibition) => {
     return exhibition.id === Number(id);
   });
 
@@ -14,21 +14,25 @@ const Exhibition = () => {
     <>
       <Header isHome={false} />
       <div className="exhibitionContainer">
-        <p>
-          {currentExhibition?.title},{currentExhibition?.place}
-        </p>
+        <div className="exhibitionInfo">
+          <p style={{ fontWeight: "bold", fontSize: "larger" }}>
+            {currentExhibition?.title}
+          </p>
+          <p>{currentExhibition?.place}</p>
+          <p>{currentExhibition?.period}</p>
+        </div>
         {currentExhibition?.works.map((work) => {
           return (
             <img
               className="exhibitionItem"
               key={work.id}
-              src={`/assets/2023/exhibitions/${currentExhibition.title}/${work.id}.jpg`}
+              src={`/assets/exhibitions/${currentExhibition.title}/${work.id}.jpg`}
               alt="foreground"
             />
           );
         })}
       </div>
-      <div>{currentExhibition?.id}</div>
+
       <Footer />
     </>
   );
