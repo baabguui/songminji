@@ -7,18 +7,18 @@ const CV = () => {
     <>
       <Header isHome={false} />
       <div className="CVContainer">
-        SONG MIN JI <br />
+        <p className="songminji">SONG MIN JI</p> <br />
         Lives and Works in Seoul <br /> <br />
         songminji1918@gmail.com <br /> <br /> <br />
-        학력 <br /> <br />
-        2021 서울과학기술대학교 조형예술과 학사 졸업
-        <br /> <br /> <br />
-        개인전 <br />
+        <p className="category">학력</p> <br />
+        2021 서울과학기술대학교 조형예술과 학사 졸업 <br />
         <br />
+        서울과학기술대학교 조형예술과 석사 재학중
+        <br /> <br />
+        <p className="category">개인전</p> <br />
         2024 WELL, 인터럼, 서울 <br />
         <br />
-        <br />
-        단체전 <br /> <br />
+        <p className="category">단체전</p> <br />
         2023 4 needles, 에브리아트, 서울 <br />
         <br />
         2023 QUEST, 갤러리 인 HQ, 서울
@@ -27,18 +27,17 @@ const CV = () => {
         <br />
         2020 미리 찌는 살, WESS, 서울
         <br /> <br />
-        2020 인류의 조상은 바나나, 가변크기, 서울 <br /> <br /> <br />
-        Education <br /> <br />
+        2020 인류의 조상은 바나나, 가변크기, 서울 <br /> <br />
+        <p className="category">Education</p> <br />
         2021 BFA Fine Arts, Seoul National University of Science & Technology,
-        Seoul <br /> <br /> <br />
-        Solo Exhibitions
-        <br />
+        Seoul <br /> <br />
+        <p className="category">Solo Exhibitions</p>
         <br />
         2024 WELL, INTERIM, Seoul
         <br />
         <br />
-        <br />
-        Group Exhibitions <br /> <br /> 2023 4 needles, Every Art, Seoul <br />
+        <p className="category">Group Exhibitions</p> <br /> 2023 4 needles,
+        Every Art, Seoul <br />
         <br />
         2023 QUEST, Gallery IN HQ, Seoul <br /> <br />
         2022 Peer to Peer, ONSU GONG-GAN, Seoul <br /> <br />
