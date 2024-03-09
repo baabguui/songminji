@@ -5,4 +5,5 @@ export default interface Work {
   size: string;
   width: number;
   height: number;
+  year: number;
 }
