@@ -2,13 +2,14 @@
   position: fixed;
   top: 95vh;
   left: 91vw;
-  font-family: "Pretendard Variable", sans-serif;
+  font-family: "Montserrat", "Noto Sans KR";
   font-size: 0.7rem;
 }
 
 @media all and (max-width: 767px) {
   .copyright {
-    top: 95vh;
+    top: 96vh;
     left: 40vw;
+    font-size: 0.6rem;
   }
 }
