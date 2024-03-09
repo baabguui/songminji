@@ -6,6 +6,7 @@ import "../styles/header.css";
 
 const MiniHeader = () => {
   const [isOpen, setOpen] = useState<Boolean>(false);
+
   return (
     <div className="miniHeaderContainer">
       <img
@@ -19,16 +20,22 @@ const MiniHeader = () => {
       {isOpen ? (
         <div className="openMiniHeaderMenu">
           <Link to={ROUTES.Works.path}>
-            <img src={`assets/icons/Works.png`} style={{ width: "100%" }} />
+            <img
+              src={`assets/icons/Works.png`}
+              style={{ width: "100%", marginLeft: "1vw" }}
+            />
           </Link>
           <Link to={ROUTES.Exhibitions.path}>
             <img
               src={`assets/icons/Exhibitions.png`}
-              style={{ width: "100%" }}
+              style={{ width: "100%", marginLeft: "2vw" }}
             />
           </Link>
           <Link to={ROUTES.CV.path}>
-            <img src={`assets/icons/CV.png`} style={{ width: "100%" }} />
+            <img
+              src={`assets/icons/CV.png`}
+              style={{ width: "100%", marginLeft: "3vw" }}
+            />
           </Link>
         </div>
       ) : (

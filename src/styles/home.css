@@ -59,8 +59,9 @@
 
 .cv:hover {
   background-image: url("../../public/assets/icons/CV.webp");
-  background-size: 60%;
+  background-size: 55%;
   top: 85vh;
+  left: 74vw;
   cursor: url(../../public/assets/icons/hover.cur), auto;
 }
 

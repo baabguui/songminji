@@ -7,6 +7,10 @@
   cursor: url(../../public/assets/icons/cur.cur), auto !important;
 }
 
+.headerIcon {
+  width: 30vw;
+}
+
 .miniHeaderContainer {
   display: flex;
   align-items: center;
