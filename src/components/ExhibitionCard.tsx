@@ -25,8 +25,10 @@ const ExhibitionCard = (props: {
           }
           alt="poster"
         />
-        {props.exhibition.title} <br />
-        {props.exhibition.place}
+        <p className="exhibitionListInfo">
+          {props.exhibition.title} <br />
+          {props.exhibition.place}
+        </p>
       </div>
     </Link>
   );

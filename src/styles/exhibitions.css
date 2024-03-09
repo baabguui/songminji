@@ -9,7 +9,6 @@
   width: 95vw;
   height: auto;
   top: 18vh;
-
   margin-left: auto;
   margin-right: auto;
   cursor: url(../../public/assets/icons/cur.cur), auto !important;
@@ -18,12 +17,11 @@
 .exhibitionListItem {
   display: flex;
   flex-direction: column;
-  row-gap: 2vh;
   align-items: center;
   align-self: center;
   width: auto;
   height: 30vh;
-  font-family: "Pretendard Variable", sans-serif;
+  font-family: "Montserrat", "Noto Sans KR";
 }
 
 .poster {
@@ -32,6 +30,11 @@
   height: 20vh;
   object-fit: contain;
   background-color: rgb(255, 255, 255);
+}
+
+.exhibitionListInfo {
+  text-align: center;
+  line-height: 1.4rem;
 }
 
 /* exhibition 페이지 */
@@ -44,7 +47,7 @@
   height: auto;
   top: 14vh;
   cursor: url(../../public/assets/icons/cur.cur), auto !important;
-  font-family: "Pretendard Variable", sans-serif;
+  font-family: "Montserrat", "Noto Sans KR";
   font-size: 1.1rem;
 }
 
@@ -67,16 +70,24 @@
     display: flex;
     flex-direction: column;
     top: 12vh;
+    padding-bottom: 3vh;
+    row-gap: 0;
   }
   .exhibitionListItem {
     font-size: 0.7rem;
+    height: 28vh;
   }
   .poster {
     width: 70vw;
+    margin-top: 0;
+  }
+  .exhibitionInfo {
+    margin-bottom: 1vh;
+    height: auto;
   }
   .exhibitionContainer {
     top: 8vh;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .exhibitionItem {
     margin-top: 0vh;
