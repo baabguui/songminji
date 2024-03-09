@@ -19,23 +19,14 @@ const MiniHeader = () => {
       />
       {isOpen ? (
         <div className="openMiniHeaderMenu">
-          <Link to={ROUTES.Works.path}>
-            <img
-              src={`assets/icons/Works.png`}
-              style={{ width: "100%", marginLeft: "1vw" }}
-            />
+          <Link to={ROUTES.Works.path} style={{ textDecoration: "none" }}>
+            <div className="miniHeaderItem">Works</div>
           </Link>
-          <Link to={ROUTES.Exhibitions.path}>
-            <img
-              src={`assets/icons/Exhibitions.png`}
-              style={{ width: "100%", marginLeft: "2vw" }}
-            />
+          <Link to={ROUTES.Exhibitions.path} style={{ textDecoration: "none" }}>
+            <div className="miniHeaderItem">Exhibitions</div>
           </Link>
-          <Link to={ROUTES.CV.path}>
-            <img
-              src={`assets/icons/CV.png`}
-              style={{ width: "100%", marginLeft: "3vw" }}
-            />
+          <Link to={ROUTES.CV.path} style={{ textDecoration: "none" }}>
+            <div className="miniHeaderItem">CV</div>
           </Link>
         </div>
       ) : (

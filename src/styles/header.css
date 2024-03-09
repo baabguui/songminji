@@ -11,19 +11,35 @@
   width: 30vw;
 }
 
+.songminji {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 2rem;
+  color: black;
+  padding-top: 15px;
+  padding-left: 10px;
+}
+
 .miniHeaderContainer {
   display: flex;
   align-items: center;
+  padding-left: 2vw;
 }
 
 .miniHeaderIcon {
-  width: 4vw;
+  width: 3vw;
 }
 
 .openMiniHeaderMenu {
   display: flex;
   width: 20vw;
   align-items: flex-end;
+  font-family: "Montserrat";
+}
+.miniHeaderItem {
+  font-size: 1.3rem;
+  padding-left: 1vw;
+  color: black;
 }
 
 @media all and (max-width: 767px) {
@@ -37,5 +53,13 @@
   .openMiniHeaderMenu {
     width: 35vw;
     column-gap: 1vw;
+  }
+  .songminji {
+    padding-top: 13px;
+    font-size: 1.2rem;
+  }
+  .miniHeaderItem {
+    padding-top: 10px;
+    font-size: 0.9rem;
   }
 }

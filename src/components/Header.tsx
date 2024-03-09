@@ -6,12 +6,8 @@ import MiniHeader from "./MiniHeader";
 const Header = (props: { isHome: Boolean }) => {
   return (
     <div className="headerContainer">
-      <Link to={ROUTES.Home.path}>
-        <img
-          className="headerIcon"
-          src={`/assets/icons/home.png`}
-          alt="songminji"
-        />
+      <Link to={ROUTES.Home.path} style={{ textDecoration: "none" }}>
+        <div className="songminji">SongMinji </div>
       </Link>
       {props.isHome ? <></> : <MiniHeader />}
     </div>
