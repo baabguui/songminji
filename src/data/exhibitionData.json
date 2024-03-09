@@ -1,18 +1,12 @@
 {
   "exhibitions": [
     {
-      "title": "Quest",
+      "title": "Well",
       "id": 1,
-      "place": "갤러리 인 HQ",
-      "period": "2023.3.2-3.19",
-      "works": [
-        { "id": 1 },
-        {
-          "id": 2
-        },
-        { "id": 3 }
-      ],
-      "year": 2023
+      "place": "인터럼",
+      "period": "2024.1.19-2.9",
+      "works": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }],
+      "year": 2024
     },
     {
       "title": "4 needles",
@@ -23,12 +17,18 @@
       "year": 2023
     },
     {
-      "title": "Well",
+      "title": "Quest",
       "id": 3,
-      "place": "인터럼",
-      "period": "2024.1.19-2.9",
-      "works": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }],
-      "year": 2024
+      "place": "갤러리 인 HQ",
+      "period": "2023.3.2-3.19",
+      "works": [
+        { "id": 1 },
+        {
+          "id": 2
+        },
+        { "id": 3 }
+      ],
+      "year": 2023
     }
   ]
 }
