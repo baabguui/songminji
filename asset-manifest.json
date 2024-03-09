@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.8790573b.css",
-    "main.js": "/static/js/main.c3a2b371.js",
+    "main.css": "/static/css/main.9bca6932.css",
+    "main.js": "/static/js/main.e215218d.js",
+    "static/media/Exhibitions.webp": "/static/media/Exhibitions.b1a2b9f8ec1910905e60.webp",
     "static/media/plates.webp": "/static/media/plates.58b0ba482072f257645c.webp",
+    "static/media/Works.webp": "/static/media/Works.95439b98364393951c66.webp",
     "static/media/background.webp": "/static/media/background.6f5f0e9269e74e1a0538.webp",
     "static/media/badee.webp": "/static/media/badee.d106cb7fcc4e5a4374bd.webp",
     "static/media/chopsticks.webp": "/static/media/chopsticks.98bd21e10309384973e9.webp",
+    "static/media/CV.webp": "/static/media/CV.94844fa841bebff85312.webp",
     "static/media/bottle.webp": "/static/media/bottle.d2f5709acc52a7c7100b.webp",
-    "static/media/Exhibitions.webp": "/static/media/Exhibitions.0304b0fa4591fe9c7659.webp",
-    "static/media/Works.webp": "/static/media/Works.39d2acf1861438c95e49.webp",
     "static/media/cur.cur": "/static/media/cur.6e19e5dccba2dc14ef7b.cur",
     "static/media/hover.cur": "/static/media/hover.155a48468588f9e75079.cur",
-    "static/media/CV.webp": "/static/media/CV.e1d03bd777a0a466130a.webp",
     "index.html": "/index.html",
-    "main.8790573b.css.map": "/static/css/main.8790573b.css.map",
-    "main.c3a2b371.js.map": "/static/js/main.c3a2b371.js.map"
+    "main.9bca6932.css.map": "/static/css/main.9bca6932.css.map",
+    "main.e215218d.js.map": "/static/js/main.e215218d.js.map"
   },
   "entrypoints": [
-    "static/css/main.8790573b.css",
-    "static/js/main.c3a2b371.js"
+    "static/css/main.9bca6932.css",
+    "static/js/main.e215218d.js"
   ]
 }
