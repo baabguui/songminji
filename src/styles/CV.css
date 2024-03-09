@@ -6,7 +6,7 @@
   left: 5vw;
   font-size: 0.7rem;
   cursor: url(../../public/assets/icons/cur.cur), auto !important;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Pretendard Variable", sans-serif;
 }
 @media all and (max-width: 767px) {
   .CVContainer {
@@ -15,4 +15,12 @@
     top: 10vh;
     font-size: 0.6rem;
   }
+}
+
+.songminji {
+  font-weight: bold;
+}
+
+.category {
+  font-weight: bold;
 }
