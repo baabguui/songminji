@@ -12,18 +12,15 @@ const WorkCard = ({
   return (
     <div className="workContainer" onWheel={handleOnWheel}>
       <picture>
-        <source
-          srcSet={`/assets/2023/${currentWork.id}_preview.webp`}
-          type="image/webp"
-        />
         <img
           className="work"
-          src={`/assets/2023/${currentWork.id}.png`}
+          src={`/assets/${currentWork.year}/${currentWork.id}.png`}
           alt="work"
         />
       </picture>
       <p>
-        {currentWork.title}, {currentWork.media}, {currentWork.size}
+        {currentWork.title}, {currentWork.year}, {currentWork.media},{" "}
+        {currentWork.size}
       </p>
       <Footer />
     </div>

@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import _debounce from "lodash/debounce";
 import imageData from "../data/imageData.json";
@@ -9,12 +9,14 @@ import WorkCard from "../components/WorkCard";
 import "../styles/works.css";
 
 const Work = () => {
-  const { id } = useParams();
+  const params = useParams();
 
-  const numberID = Number(id);
+  const numberID = Number(params.id);
+  const year = Number(params.year);
+  const [currentYear, setCurrentYear] = useState(year);
+  const imageList = year == 2023 ? imageData[2023] : imageData[2024]; //수정 필요
   const navigate = useNavigate();
 
-  const imageList = imageData.three;
   const imageListLength = imageList.length;
 
   const handleOnWheel = useCallback(
@@ -28,18 +30,43 @@ const Work = () => {
             ? imageListLength - 1
             : numberID - 1;
 
-      navigate(`/works/${nextIndex}`);
+      navigate(`/works/${year}/${nextIndex}`);
     }, 50),
     [],
   );
 
   const handleClickImage = (imageID: number) => {
-    navigate(`/works/${imageID}`);
+    navigate(`/works/${year}/${imageID}`);
+  };
+
+  const handleClickYear = (year: number) => {
+    const id = 0;
+    navigate(`/works/${year}/${id}`);
   };
 
   return (
     <>
       <Header isHome={false} />
+      <div className="yearContainer">
+        <div
+          style={currentYear == 2024 ? { fontWeight: "bolder" } : {}}
+          onClick={() => {
+            handleClickYear(2024);
+            setCurrentYear(2024);
+          }}
+        >
+          2024
+        </div>
+        <div
+          style={currentYear == 2023 ? { fontWeight: "bolder" } : {}}
+          onClick={() => {
+            handleClickYear(2023);
+            setCurrentYear(2023);
+          }}
+        >
+          2023
+        </div>
+      </div>
       <div className="worksContainer">
         <div className="listContainer">
           {imageList.map((image) => (
@@ -49,14 +76,14 @@ const Work = () => {
               onClick={() => handleClickImage(image.id)}
             >
               <source
-                srcSet={`/assets/2023/${image.id}_preview.webp`}
+                srcSet={`/assets/${year}/${image.id}_preview.webp`}
                 type="image/webp"
               />
               <img
                 className={
                   image.id === numberID ? "currentListItem" : "listItem"
                 }
-                src={`/assets/2023/${image.id}_preview.png`}
+                src={`/assets/${year}/${image.id}_preview.png`}
                 alt="preview"
               />
             </picture>
@@ -70,7 +97,19 @@ const Work = () => {
           className="nextButton"
           onClick={() => {
             navigate(
-              `/works/${numberID + 1 > imageListLength - 1 ? 0 : numberID + 1}`,
+              `/works/${year}/${
+                numberID + 1 > imageListLength - 1 ? 0 : numberID + 1
+              }`,
+            );
+          }}
+        ></span>
+        <span
+          className="backButton"
+          onClick={() => {
+            navigate(
+              `/works/${year}/${
+                numberID - 1 < 0 ? imageListLength - 1 : numberID - 1
+              }`,
             );
           }}
         ></span>
