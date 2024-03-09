@@ -21,11 +21,11 @@ export const ROUTES: routeWrap = {
     Component: Home,
   },
   Works: {
-    path: "/works",
+    path: "/works/:year",
     Component: Works,
   },
   Work: {
-    path: "/works/:id",
+    path: "/works/:year/:id",
     Component: Work,
   },
   Exhibitions: {
