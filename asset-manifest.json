@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.54085756.css",
-    "main.js": "/static/js/main.f8a9e05c.js",
+    "main.js": "/static/js/main.da5d52e8.js",
     "static/media/Exhibitions.webp": "/static/media/Exhibitions.b1a2b9f8ec1910905e60.webp",
     "static/media/plates.webp": "/static/media/plates.58b0ba482072f257645c.webp",
     "static/media/Works.webp": "/static/media/Works.95439b98364393951c66.webp",
@@ -14,10 +14,10 @@
     "static/media/hover.cur": "/static/media/hover.155a48468588f9e75079.cur",
     "index.html": "/index.html",
     "main.54085756.css.map": "/static/css/main.54085756.css.map",
-    "main.f8a9e05c.js.map": "/static/js/main.f8a9e05c.js.map"
+    "main.da5d52e8.js.map": "/static/js/main.da5d52e8.js.map"
   },
   "entrypoints": [
     "static/css/main.54085756.css",
-    "static/js/main.f8a9e05c.js"
+    "static/js/main.da5d52e8.js"
   ]
 }
