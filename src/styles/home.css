@@ -1,8 +1,6 @@
 .background {
   background-image: url("../../public/assets/icons/background.webp");
   position: relative;
-  width: 100vw;
-  height: 100vh;
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -12,10 +10,10 @@
   background-size: 100%;
   background-repeat: no-repeat;
   position: absolute;
-  width: 13vw;
+  width: 11vw;
   height: 36vh;
   z-index: 1;
-  left: 82vw;
+  left: 72vw;
   top: 17vh;
 }
 
@@ -32,11 +30,11 @@
   background-size: 100%;
   background-repeat: no-repeat;
   position: absolute;
-  width: 23vw;
+  width: 20vw;
   height: 28vh;
   z-index: 1;
-  left: 60vw;
-  top: 40vh;
+  left: 53vw;
+  top: 38vh;
 }
 .exhibitions:hover {
   background-image: url("../../public/assets/icons/Exhibitions.webp");
@@ -50,10 +48,10 @@
   background-size: 100%;
   background-repeat: no-repeat;
   position: absolute;
-  width: 13vw;
+  width: 12vw;
   height: 20vh;
   z-index: 1;
-  left: 72vw;
+  left: 65vw;
   top: 82vh;
 }
 
@@ -61,7 +59,7 @@
   background-image: url("../../public/assets/icons/CV.webp");
   background-size: 55%;
   top: 85vh;
-  left: 74vw;
+  left: 68vw;
   cursor: url(../../public/assets/icons/hover.cur), auto;
 }
 
@@ -74,11 +72,23 @@
   height: 13vh;
   z-index: 1;
   top: 54vh;
-  left: 52vw;
+  left: 46vw;
 }
 
 .link:hover {
   cursor: url(../../public/assets/icons/hover.cur), auto;
+}
+
+.contact {
+  background-image: url("../../public/assets/icons/contact.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 8vw;
+  height: 8vh;
+  z-index: 1;
+  top: 56vh;
+  left: 70vw;
 }
 
 @media all and (max-width: 767px) {
