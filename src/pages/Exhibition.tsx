@@ -31,6 +31,16 @@ const Exhibition = () => {
             />
           );
         })}
+        <div className="exhibitionText">
+          {currentExhibition?.description.map((text) => {
+            return (
+              <p key={text[0]}>
+                {text}
+                <br />
+              </p>
+            );
+          })}
+        </div>
       </div>
 
       <Footer />

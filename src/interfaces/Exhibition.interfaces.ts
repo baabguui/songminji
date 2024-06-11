@@ -7,4 +7,5 @@ export default interface Exhibition {
     id: number;
   }[];
   year: number;
+  description: string[];
 }
