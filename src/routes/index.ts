@@ -5,6 +5,7 @@ import Work from "../pages/Work";
 import Exhibitions from "../pages/Exhibitions";
 import Exhibition from "../pages/Exhibition";
 import CV from "../pages/CV";
+import Contact from "../pages/Contact";
 
 interface route {
   path: string;
@@ -39,6 +40,10 @@ export const ROUTES: routeWrap = {
   CV: {
     path: "/CV",
     Component: CV,
+  },
+  Contact: {
+    path: "/contact",
+    Component: Contact,
   },
 };
 
