@@ -28,6 +28,9 @@ const MiniHeader = () => {
           <Link to={ROUTES.CV.path} style={{ textDecoration: "none" }}>
             <div className="miniHeaderItem">CV</div>
           </Link>
+          <Link to={ROUTES.Contact.path} style={{ textDecoration: "none" }}>
+            <div className="miniHeaderItem">contact</div>
+          </Link>
         </div>
       ) : (
         <></>
