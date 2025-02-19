@@ -20,9 +20,9 @@ const Home = () => {
       </Link>
 
       <PopUp
-        img={"/assets/exhibitions/undoEffect.jpg"}
+        img={"/assets/exhibitions/park.png"}
         url={
-          "https://www.instagram.com/p/C6isE7fpE6g/?igsh=MTQ5MzQyaDhwYXBlag=="
+          "https://www.instagram.com/reel/DBYDOpvJI3B/?igsh=bmxreDA3YndpZW9z"
         }
       />
 

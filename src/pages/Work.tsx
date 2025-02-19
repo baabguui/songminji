@@ -48,6 +48,7 @@ const Work = () => {
     <>
       <Header isHome={false} />
       <div className="yearContainer">
+        {/* 이거 데이터 map으로 처리하기 */}
         <div
           style={currentYear == 2024 ? { fontWeight: "bolder" } : {}}
           onClick={() => {
