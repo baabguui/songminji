@@ -1,0 +1,29 @@
+import Home from "pages/Home";
+import Exhibitions from "pages/Exhibitions";
+import CV from "pages/CV";
+import Contact from "pages/Contact";
+
+export const ROUTES: routeWrap = {
+  home: {
+    Path: "/",
+    Component: Home,
+    Label: "Home",
+  },
+  Exhibitions: {
+    Path: "/exhibitions",
+    Component: Exhibitions,
+    Label: "Exhibitions",
+  },
+  CV: {
+    Path: "/cv",
+    Component: CV,
+    Label: "CV",
+  },
+  Contact: {
+    Path: "/contact",
+    Component: Contact,
+    Label: "Contact",
+  },
+};
+
+export const ROUTES_LIST: route[] = Object.values(ROUTES);
