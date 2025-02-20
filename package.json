@@ -18,6 +18,7 @@
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
     "shx": "^0.3.4",
+    "styled-components": "^6.1.15",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

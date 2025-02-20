@@ -7,7 +7,7 @@ export const ROUTES: routeWrap = {
   home: {
     Path: "/",
     Component: Home,
-    Label: "Home",
+    Label: "Song Minji",
   },
   Exhibitions: {
     Path: "/exhibitions",
