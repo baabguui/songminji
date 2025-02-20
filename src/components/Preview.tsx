@@ -5,7 +5,13 @@ import {
   Item,
 } from "styles/PreviewStyles";
 
-const Preview = ({ previewData }: { previewData: ExhibitionsByYear }) => {
+const Preview = ({
+  previewData,
+  onItemClicked,
+}: {
+  previewData: ExhibitionsByYear;
+  onItemClicked: (id: string) => void;
+}) => {
   return (
     <PreviewContainer>
       {Object.entries(previewData)
@@ -17,7 +23,12 @@ const Preview = ({ previewData }: { previewData: ExhibitionsByYear }) => {
               <ItemContainer>
                 {exhibitions.map((item) => {
                   return (
-                    <Item key={item.id}>
+                    <Item
+                      key={item.id}
+                      onClick={() => {
+                        onItemClicked(item.id);
+                      }}
+                    >
                       <p style={{ margin: "0" }}>{item.title}</p>
                       <p style={{ margin: "0" }}>{item.place}</p>
                     </Item>

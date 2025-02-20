@@ -2,6 +2,7 @@ import Home from "pages/Home";
 import Exhibitions from "pages/Exhibitions";
 import CV from "pages/CV";
 import Contact from "pages/Contact";
+import Exhibition from "pages/Exhibition";
 
 export const ROUTES: routeWrap = {
   home: {
@@ -23,6 +24,11 @@ export const ROUTES: routeWrap = {
     Path: "/contact",
     Component: Contact,
     Label: "Contact",
+  },
+  Exhibition: {
+    Path: "/exhibitions/:id",
+    Component: Exhibition,
+    Label: "Exhibition",
   },
 };
 

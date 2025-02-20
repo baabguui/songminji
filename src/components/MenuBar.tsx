@@ -15,6 +15,9 @@ const MenuBar = () => {
   return (
     <MenuContainer>
       {ROUTES_LIST.map(({ Path, Label }) => {
+        if (Label === "Exhibition") {
+          return;
+        }
         return (
           <MenuItem
             key={Path}
