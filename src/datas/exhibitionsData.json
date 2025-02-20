@@ -1,0 +1,13 @@
+[
+  {
+    "id": "sample",
+    "title": "Exhibition sample",
+    "place": "Place sample",
+    "period": "2025.02.20.-2025.02.20.",
+    "year": 2025,
+    "datas": {
+      "foreground": [0],
+      "works": ["0-Untitled"]
+    }
+  }
+]
