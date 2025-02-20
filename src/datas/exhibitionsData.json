@@ -1,13 +1,56 @@
-[
-  {
-    "id": "sample",
-    "title": "Exhibition sample",
-    "place": "Place sample",
-    "period": "2025.02.20.-2025.02.20.",
-    "year": 2025,
-    "datas": {
-      "foreground": [0],
-      "works": ["0-Untitled"]
+{
+  "2025": [
+    {
+      "id": "vacancy",
+      "title": "공실 Vacancy",
+      "place": "서울시 강남구 압구정로 75길 38-17 2층",
+      "period": "2025.2.13.-2025.2.27.",
+      "datas": {
+        "foreground": [0],
+        "works": ["0-Untitled"]
+      }
     }
-  }
-]
+  ],
+  "2024": [
+    {
+      "id": "painting-in-winter",
+      "title": "겨울 회화 Painting in Winter",
+      "place": "대안공간 루프 Alternative Space Loop",
+      "period": "2024.12.27.-2025.1.25.",
+      "datas": {
+        "foreground": [0],
+        "works": ["0-Untitled"]
+      }
+    },
+    {
+      "id": "park",
+      "title": "파크 Park",
+      "place": "상히읗 sangheeut",
+      "period": "2024.10.30.-2024.11.23.",
+      "datas": {
+        "foreground": [0],
+        "works": ["0-Untitled"]
+      }
+    },
+    {
+      "id": "undoEffects",
+      "title": "언두 이펙트 Undo Effects",
+      "place": "하이트 컬렉션 Hite Collection",
+      "period": "2024.5.10.-2024.6.29.",
+      "datas": {
+        "foreground": [0],
+        "works": ["0-Untitled"]
+      }
+    },
+    {
+      "id": "well",
+      "title": "웰 WELL",
+      "place": "인터럼 INTERIM",
+      "period": "2024.1.19.-2024.2.9.",
+      "datas": {
+        "foreground": [0],
+        "works": ["0-Untitled"]
+      }
+    }
+  ]
+}
