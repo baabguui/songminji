@@ -3,10 +3,10 @@ interface Exhibition {
   title: string;
   place: string;
   period: string;
-  datas: ExhibitionData;
+  datas: ExhibitionData[];
 }
 
 interface ExhibitionData {
-  foreground: number[];
-  works: string[];
+  category: string;
+  id: number;
 }

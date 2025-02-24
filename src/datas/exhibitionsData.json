@@ -5,10 +5,16 @@
       "title": "공실 Vacancy",
       "place": "서울시 강남구 압구정로 75길 38-17 2층",
       "period": "2025.2.13.-2025.2.27.",
-      "datas": {
-        "foreground": [0],
-        "works": ["0-Untitled"]
-      }
+      "datas": [
+        { "category": "foreground", "id": 0 },
+        { "category": "foreground", "id": 1 },
+        { "category": "foreground", "id": 2 },
+        { "category": "foreground", "id": 3 },
+        { "category": "foreground", "id": 4 },
+        { "category": "foreground", "id": 5 },
+        { "category": "foreground", "id": 6 },
+        { "category": "foreground", "id": 7 }
+      ]
     }
   ],
   "2024": [
@@ -17,40 +23,79 @@
       "title": "겨울 회화 Painting in Winter",
       "place": "대안공간 루프 Alternative Space Loop",
       "period": "2024.12.27.-2025.1.25.",
-      "datas": {
-        "foreground": [0],
-        "works": ["0-Untitled"]
-      }
+      "datas": [
+        { "category": "foreground", "id": 0 },
+        { "category": "foreground", "id": 1 },
+        { "category": "foreground", "id": 2 },
+        { "category": "foreground", "id": 3 }
+      ]
     },
     {
       "id": "park",
       "title": "파크 Park",
       "place": "상히읗 sangheeut",
       "period": "2024.10.30.-2024.11.23.",
-      "datas": {
-        "foreground": [0],
-        "works": ["0-Untitled"]
-      }
+      "datas": [
+        { "category": "foreground", "id": 0 },
+        { "category": "foreground", "id": 1 },
+        { "category": "foreground", "id": 2 },
+        { "category": "foreground", "id": 3 },
+        { "category": "foreground", "id": 4 },
+        { "category": "foreground", "id": 5 },
+        { "category": "foreground", "id": 6 },
+        { "category": "foreground", "id": 7 },
+        { "category": "foreground", "id": 8 },
+        { "category": "foreground", "id": 9 },
+        { "category": "foreground", "id": 10 },
+        { "category": "foreground", "id": 11 },
+        { "category": "foreground", "id": 12 },
+        { "category": "foreground", "id": 13 },
+        { "category": "foreground", "id": 14 },
+        { "category": "foreground", "id": 15 },
+        { "category": "foreground", "id": 16 },
+        { "category": "foreground", "id": 17 }
+      ]
     },
     {
       "id": "undoEffects",
       "title": "언두 이펙트 Undo Effects",
       "place": "하이트 컬렉션 Hite Collection",
       "period": "2024.5.10.-2024.6.29.",
-      "datas": {
-        "foreground": [0],
-        "works": ["0-Untitled"]
-      }
+      "datas": [
+        { "category": "foreground", "id": 0 },
+        { "category": "foreground", "id": 1 },
+        { "category": "foreground", "id": 2 }
+      ]
     },
     {
       "id": "well",
       "title": "웰 WELL",
       "place": "인터럼 INTERIM",
       "period": "2024.1.19.-2024.2.9.",
-      "datas": {
-        "foreground": [0],
-        "works": ["0-Untitled"]
-      }
+      "datas": [
+        { "category": "foreground", "id": 0 },
+        { "category": "foreground", "id": 1 },
+        { "category": "foreground", "id": 2 },
+        { "category": "foreground", "id": 3 },
+        { "category": "work", "id": 0 },
+        { "category": "foreground", "id": 4 },
+        { "category": "foreground", "id": 5 },
+        { "category": "foreground", "id": 6 },
+        { "category": "foreground", "id": 7 },
+        { "category": "foreground", "id": 8 },
+        { "category": "foreground", "id": 9 },
+        { "category": "work", "id": 1 },
+        { "category": "work", "id": 2 },
+        { "category": "foreground", "id": 10 },
+        { "category": "foreground", "id": 11 },
+        { "category": "work", "id": 3 },
+        { "category": "foreground", "id": 12 },
+        { "category": "foreground", "id": 13 },
+        { "category": "work", "id": 4 },
+        { "category": "foreground", "id": 14 },
+        { "category": "foreground", "id": 15 },
+        { "category": "foreground", "id": 16 }
+      ]
     }
   ]
 }
