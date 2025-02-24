@@ -10,6 +10,28 @@ import {
 const Exhibition = () => {
   const { id } = useParams<{ id: string }>();
   const [exhibition, setExhibition] = useState<Exhibition>();
+  const [showScrollTopButton, setShowScrollTopButton] = useState(false);
+
+  const scrollTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  useEffect(() => {
+    const handleShowScrollTopButton = () => {
+      if (window.scrollY > 500) {
+        setShowScrollTopButton(true);
+      } else {
+        setShowScrollTopButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleShowScrollTopButton);
+    return () => {
+      window.removeEventListener("scroll", handleShowScrollTopButton);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,6 +81,14 @@ const Exhibition = () => {
               );
           }
         })}
+        {showScrollTopButton && (
+          <div
+            onClick={scrollTop}
+            style={{ position: "fixed", bottom: "6vw", right: "6vw" }}
+          >
+            Top
+          </div>
+        )}
       </ExhibitionContainer>
     );
   }
