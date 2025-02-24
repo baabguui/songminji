@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const PreviewContainer = styled.div`
-  font-size: clamp(10px, 1.2vw, 22px);
   display: flex;
   flex-direction: column;
   gap: 1vw;
@@ -27,4 +26,10 @@ const Item = styled.div`
   }
 `;
 
-export { PreviewContainer, YearContainer, ItemContainer, Item };
+const ItemParagraph = styled.p`
+  font-size: clamp(10px, 1.2vw, 22px);
+  font-family: Malgun Gothic;
+  margin: -0.1vw;
+`;
+
+export { PreviewContainer, YearContainer, ItemContainer, Item, ItemParagraph };

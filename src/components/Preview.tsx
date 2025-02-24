@@ -3,6 +3,7 @@ import {
   YearContainer,
   ItemContainer,
   Item,
+  ItemParagraph,
 } from "styles/PreviewStyles";
 
 const Preview = ({
@@ -19,7 +20,7 @@ const Preview = ({
         .map(([year, exhibitions]) => {
           return (
             <YearContainer key={year.toString()}>
-              {year.toString()}
+              <ItemParagraph>{year.toString()}</ItemParagraph>
               <ItemContainer>
                 {exhibitions.map((item) => {
                   return (
@@ -29,8 +30,8 @@ const Preview = ({
                         onItemClicked(item.id);
                       }}
                     >
-                      <p style={{ margin: "0" }}>{item.title}</p>
-                      <p style={{ margin: "0" }}>{item.place}</p>
+                      <ItemParagraph>{item.title}</ItemParagraph>
+                      <ItemParagraph>{item.place}</ItemParagraph>
                     </Item>
                   );
                 })}

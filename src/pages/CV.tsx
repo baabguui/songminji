@@ -9,7 +9,7 @@ const CV = () => {
   return (
     <CVContainer>
       <CVContentParagraph
-        style={{ fontSize: "clamp(10px, 1.2vw, 22px)", paddingBottom: "1vw" }}
+        style={{ fontSize: "clamp(10px, 1.2vw, 22px)", paddingBottom: "1.8vw" }}
       >
         송민지 Minji Song
       </CVContentParagraph>
@@ -23,7 +23,7 @@ const CV = () => {
                     style={{
                       display: "flex",
                       flexDirection: "row",
-                      width: "28vw",
+                      width: "29vw",
                       gap: "1vw",
                     }}
                   >
@@ -40,7 +40,7 @@ const CV = () => {
                     style={{
                       display: "flex",
                       flexDirection: "row",
-                      width: "28vw",
+                      width: "32vw",
                       gap: "1vw",
                     }}
                   >

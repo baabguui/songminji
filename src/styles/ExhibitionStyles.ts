@@ -8,6 +8,7 @@ const ExhibitionContainer = styled.div`
 
 const ExhibitionParagraph = styled.p`
   font-size: clamp(10px, 1.2vw, 22px);
+  font-family: Malgun Gothic;
   margin: 0;
 `;
 
