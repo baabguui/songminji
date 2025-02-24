@@ -1,5 +1,13 @@
+import { ContactContainer } from "styles/ContactStyles";
+
 const Contact = () => {
-  return <></>;
+  return (
+    <ContactContainer>
+      <p style={{ fontStyle: "clamp(10px, 1.2vw, 22px)", margin: "0" }}>
+        songminji1918@gmail.com
+      </p>
+    </ContactContainer>
+  );
 };
 
 export default Contact;
