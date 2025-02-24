@@ -3,6 +3,7 @@ interface Exhibition {
   title: string;
   place: string;
   period: string;
+  file?: string;
   datas: ExhibitionData[];
 }
 

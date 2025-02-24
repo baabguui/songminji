@@ -55,9 +55,22 @@ const Exhibition = () => {
       <ExhibitionContainer>
         <ExhibitionParagraph>{exhibition.title}</ExhibitionParagraph>
         <ExhibitionParagraph>{exhibition.place}</ExhibitionParagraph>
-        <ExhibitionParagraph style={{ marginBottom: "2vw" }}>
-          {exhibition.period}
-        </ExhibitionParagraph>
+        <ExhibitionParagraph>{exhibition.period}</ExhibitionParagraph>
+        {exhibition.file && (
+          <a
+            href={`/assets/exhibitions/${exhibition.id}/${exhibition.file}.pdf`}
+            download={`${exhibition.file}.pdf`}
+            style={{
+              marginTop: "1vw",
+              marginBottom: "2vw",
+              textDecoration: "none",
+            }}
+          >
+            <ExhibitionParagraph style={{ color: "cadetblue" }}>
+              {exhibition.file}
+            </ExhibitionParagraph>
+          </a>
+        )}
         {exhibition.datas.map((content) => {
           switch (content.category) {
             case "foreground":
