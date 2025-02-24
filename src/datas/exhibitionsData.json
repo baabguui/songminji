@@ -77,21 +77,41 @@
         { "category": "foreground", "id": 1 },
         { "category": "foreground", "id": 2 },
         { "category": "foreground", "id": 3 },
-        { "category": "work", "id": 0 },
+        {
+          "category": "work",
+          "id": 0,
+          "title": "송민지, Untitled, 2023. oil on canvas, 193.9x130.3cm"
+        },
         { "category": "foreground", "id": 4 },
         { "category": "foreground", "id": 5 },
         { "category": "foreground", "id": 6 },
         { "category": "foreground", "id": 7 },
         { "category": "foreground", "id": 8 },
         { "category": "foreground", "id": 9 },
-        { "category": "work", "id": 1 },
-        { "category": "work", "id": 2 },
+        {
+          "category": "work",
+          "id": 1,
+          "title": "송민지, Untitled, 2023. oil on canvas, 227.3x145.5cm"
+        },
+        {
+          "category": "work",
+          "id": 2,
+          "title": "송민지, Untitled, 2023. oil on canvas, 130.3x248cm"
+        },
         { "category": "foreground", "id": 10 },
         { "category": "foreground", "id": 11 },
-        { "category": "work", "id": 3 },
+        {
+          "category": "work",
+          "id": 3,
+          "title": "송민지, Untitled, 2023. oil on canvas, 130.3x248cm"
+        },
         { "category": "foreground", "id": 12 },
         { "category": "foreground", "id": 13 },
-        { "category": "work", "id": 4 },
+        {
+          "category": "work",
+          "id": 4,
+          "title": "송민지, 1.15.-1.18., 2023. oil on canvas, 165.5x772cm"
+        },
         { "category": "foreground", "id": 14 },
         { "category": "foreground", "id": 15 },
         { "category": "foreground", "id": 16 }
