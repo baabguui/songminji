@@ -22,6 +22,7 @@ const MenuBar = () => {
           <MenuItem
             key={Path}
             selected={selected === Label && Label !== "Song Minji"}
+            category={Label}
             onClick={() => {
               handleClick(Label as Menu);
             }}
