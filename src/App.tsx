@@ -1,18 +1,22 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import { ROUTES_LIST } from "./routes";
-import Home from "./pages/Home";
-import "./styles/app.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ROUTES_LIST } from "routes";
+import MenuBar from "components/MenuBar";
+import { AppContainer, ContentContainer } from "styles/AppStyles";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {ROUTES_LIST.map(({ path, Component }, idx) => (
-          <Route key={idx} path={path} element={<Component />} />
-        ))}
-      </Routes>
-    </Router>
+    <BrowserRouter>
+      <AppContainer>
+        <MenuBar />
+        <ContentContainer>
+          <Routes>
+            {ROUTES_LIST.map(({ Path, Component }, idx) => (
+              <Route key={idx} path={Path} element={<Component />} />
+            ))}
+          </Routes>
+        </ContentContainer>
+      </AppContainer>
+    </BrowserRouter>
   );
 }
 

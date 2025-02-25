@@ -1,21 +1,27 @@
-import Header from "../components/Header";
-import ExhibitionCard from "../components/ExhibitionCard";
-import exhibitionData from "../data/exhibitionData.json";
-import "../styles/exhibitions.css";
-import Footer from "../components/Footer";
+import exhibitionsData from "datas/exhibitionsData.json";
+import Preview from "components/Preview";
+import { useNavigate } from "react-router-dom";
 
 const Exhibitions = () => {
-  const exhibitionList = exhibitionData.exhibitions;
-  return (
-    <>
-      <Header isHome={false} />
-      <div className="exhibitionsListContainer">
-        {exhibitionList.map((exhibition) => {
-          return <ExhibitionCard key={exhibition.id} exhibition={exhibition} />;
-        })}
-      </div>
-      <Footer />
-    </>
+  const navigate = useNavigate();
+  const previewData = Object.entries(exhibitionsData).reduce(
+    (acc, [year, exhibitions]) => {
+      acc[year] = exhibitions.map((exhibition) => ({
+        id: exhibition.id,
+        title: exhibition.title,
+        place: exhibition.place,
+        period: exhibition.period,
+      }));
+      return acc;
+    },
+    {} as ExhibitionsByYear,
   );
+
+  const handleItemClick = (id: string) => {
+    navigate(`/exhibitions/${id}`);
+  };
+
+  return <Preview previewData={previewData} onItemClicked={handleItemClick} />;
 };
+
 export default Exhibitions;

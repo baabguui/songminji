@@ -1,51 +1,107 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import exhibitionData from "../data/exhibitionData.json";
-import "../styles/exhibitions.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import {
+  ExhibitionContainer,
+  ExhibitionParagraph,
+  ExhibitionContentImage,
+  ExhibitionContentCaption,
+} from "styles/ExhibitionStyles";
 
 const Exhibition = () => {
-  const { id } = useParams();
-  const currentExhibition = exhibitionData.exhibitions.find((exhibition) => {
-    return exhibition.id === Number(id);
-  });
+  const { id } = useParams<{ id: string }>();
+  const [exhibition, setExhibition] = useState<Exhibition>();
+  const [showScrollTopButton, setShowScrollTopButton] = useState(false);
 
-  return (
-    <>
-      <Header isHome={false} />
-      <div className="exhibitionContainer">
-        <div className="exhibitionInfo">
-          <p style={{ fontWeight: "bold", fontSize: "larger" }}>
-            {currentExhibition?.title}
-          </p>
-          <p>{currentExhibition?.place}</p>
-          <p>{currentExhibition?.period}</p>
-        </div>
-        {currentExhibition?.works.map((work) => {
-          return (
-            <img
-              className="exhibitionItem"
-              key={work.id}
-              src={`/assets/exhibitions/${currentExhibition.title}/${work.id}.jpg`}
-              alt="foreground"
-            />
+  const scrollTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  useEffect(() => {
+    const handleShowScrollTopButton = () => {
+      const scrollThreshold = window.innerWidth < 768 ? 300 : 500; // 🔹 모바일(768px 이하)에서는 300px, 데스크톱에서는 500px
+
+      if (window.scrollY > scrollThreshold) {
+        setShowScrollTopButton(true);
+      } else {
+        setShowScrollTopButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleShowScrollTopButton);
+    return () => {
+      window.removeEventListener("scroll", handleShowScrollTopButton);
+    };
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const module = await import("datas/exhibitionsData.json");
+        const data = module.default;
+        Object.values(data).forEach((exhibition: Exhibition[]) => {
+          const match = exhibition.find(
+            (exhibition: Exhibition) => exhibition.id === id,
           );
+          if (match) setExhibition(match);
+        });
+      } catch (error) {
+        console.error;
+      }
+    };
+    fetchData();
+  }, [id]);
+  if (exhibition) {
+    return (
+      <ExhibitionContainer>
+        <ExhibitionParagraph>{exhibition.title}</ExhibitionParagraph>
+        <ExhibitionParagraph>{exhibition.place}</ExhibitionParagraph>
+        <ExhibitionParagraph>{exhibition.period}</ExhibitionParagraph>
+        {exhibition.file && (
+          <a
+            href={`/assets/exhibitions/${exhibition.id}/${exhibition.file}.pdf`}
+            download={`${exhibition.file}.pdf`}
+            style={{
+              marginTop: "1vw",
+              textDecoration: "none",
+            }}
+          >
+            <ExhibitionParagraph style={{ color: "cadetblue" }}>
+              {exhibition.file}
+            </ExhibitionParagraph>
+          </a>
+        )}
+        <div style={{ marginBottom: "2vw" }} />
+        {exhibition.datas.map((content) => {
+          switch (content.category) {
+            case "foreground":
+              return (
+                <ExhibitionContentImage
+                  src={`/assets/exhibitions/${exhibition.id}/${content.id}.jpg`}
+                  category={"foreground"}
+                ></ExhibitionContentImage>
+              );
+            case "work":
+              return (
+                <ExhibitionContentImage
+                  src={`/assets/works/${content.id}/0.jpg`}
+                  category={"work"}
+                ></ExhibitionContentImage>
+              );
+          }
         })}
-        <div className="exhibitionText">
-          {currentExhibition?.description.map((text) => {
-            return (
-              <p key={text[0]}>
-                {text}
-                <br />
-              </p>
-            );
-          })}
-        </div>
-      </div>
-
-      <Footer />
-    </>
-  );
+        {showScrollTopButton && (
+          <div
+            onClick={scrollTop}
+            style={{ position: "fixed", bottom: "6vw", right: "6vw" }}
+          >
+            Top
+          </div>
+        )}
+      </ExhibitionContainer>
+    );
+  }
 };
 
 export default Exhibition;

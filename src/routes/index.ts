@@ -1,49 +1,34 @@
-import React from "react";
-import Home from "../pages/Home";
-import Works from "../pages/Works";
-import Work from "../pages/Work";
-import Exhibitions from "../pages/Exhibitions";
-import Exhibition from "../pages/Exhibition";
-import CV from "../pages/CV";
-import Contact from "../pages/Contact";
-
-interface route {
-  path: string;
-  Component: React.FC;
-}
-
-interface routeWrap {
-  [key: string]: route;
-}
+import Home from "pages/Home";
+import Exhibitions from "pages/Exhibitions";
+import CV from "pages/CV";
+import Contact from "pages/Contact";
+import Exhibition from "pages/Exhibition";
 
 export const ROUTES: routeWrap = {
-  Home: {
-    path: "/",
+  home: {
+    Path: "/",
     Component: Home,
-  },
-  Works: {
-    path: "/works/:year",
-    Component: Works,
-  },
-  Work: {
-    path: "/works/:year/:id",
-    Component: Work,
+    Label: "Song Minji",
   },
   Exhibitions: {
-    path: "/exhibitions",
+    Path: "/exhibitions",
     Component: Exhibitions,
-  },
-  Exhibition: {
-    path: "/exhibitions/:id",
-    Component: Exhibition,
+    Label: "Exhibitions",
   },
   CV: {
-    path: "/CV",
+    Path: "/cv",
     Component: CV,
+    Label: "CV",
   },
   Contact: {
-    path: "/contact",
+    Path: "/contact",
     Component: Contact,
+    Label: "Contact",
+  },
+  Exhibition: {
+    Path: "/exhibitions/:id",
+    Component: Exhibition,
+    Label: "Exhibition",
   },
 };
 

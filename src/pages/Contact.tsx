@@ -1,14 +1,10 @@
-import Header from "../components/Header";
-import "../styles/CV.css";
+import { ContactContainer, ContactParagraph } from "styles/ContactStyles";
 
 const Contact = () => {
   return (
-    <>
-      <Header isHome={false} />
-      <div className="CVContainer">
-        <p>songminji1918@gmail.com</p>
-      </div>
-    </>
+    <ContactContainer>
+      <ContactParagraph>songminji1918@gmail.com</ContactParagraph>
+    </ContactContainer>
   );
 };
 
