@@ -20,7 +20,9 @@ const Exhibition = () => {
   };
   useEffect(() => {
     const handleShowScrollTopButton = () => {
-      if (window.scrollY > 500) {
+      const scrollThreshold = window.innerWidth < 768 ? 300 : 500; // 🔹 모바일(768px 이하)에서는 300px, 데스크톱에서는 500px
+
+      if (window.scrollY > scrollThreshold) {
         setShowScrollTopButton(true);
       } else {
         setShowScrollTopButton(false);
@@ -62,7 +64,6 @@ const Exhibition = () => {
             download={`${exhibition.file}.pdf`}
             style={{
               marginTop: "1vw",
-              marginBottom: "2vw",
               textDecoration: "none",
             }}
           >
@@ -71,6 +72,7 @@ const Exhibition = () => {
             </ExhibitionParagraph>
           </a>
         )}
+        <div style={{ marginBottom: "2vw" }} />
         {exhibition.datas.map((content) => {
           switch (content.category) {
             case "foreground":
@@ -82,15 +84,10 @@ const Exhibition = () => {
               );
             case "work":
               return (
-                <>
-                  <ExhibitionContentImage
-                    src={`/assets/works/${content.id}/0.jpg`}
-                    category={"work"}
-                  ></ExhibitionContentImage>
-                  <ExhibitionContentCaption>
-                    {content.title}
-                  </ExhibitionContentCaption>
-                </>
+                <ExhibitionContentImage
+                  src={`/assets/works/${content.id}/0.jpg`}
+                  category={"work"}
+                ></ExhibitionContentImage>
               );
           }
         })}
