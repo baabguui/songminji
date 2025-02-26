@@ -37,7 +37,7 @@ const Item = styled.div`
 
 const ItemParagraph = styled.p`
   font-size: clamp(10px, 1.2vw, 22px);
-  font-family: Malgun Gothic;
+  font-family: NotoSansKR, NotoSans;
   margin: -0.1vw;
   @media (max-width: 768px) {
     font-size: clamp(12px, 3.4vw, 24px);

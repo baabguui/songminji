@@ -51,9 +51,8 @@ const CVContentContainer = styled.div`
 
 const CVContentParagraph = styled.p`
   font-size: clamp(10px, 1.2vw, 22px);
-  font-family: Malgun Gothic;
-  margin: -0.1vw;
-
+  font-family: NotoSanskr, NotoSans;
+  margin: 0;
   @media (max-width: 768px) {
     font-size: clamp(12px, 3.4vw, 24px);
     margin: 0;

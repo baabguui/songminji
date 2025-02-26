@@ -5,6 +5,7 @@ import {
   ExhibitionParagraph,
   ExhibitionContentImage,
   ExhibitionContentCaption,
+  ScrollTop,
 } from "styles/ExhibitionStyles";
 
 const Exhibition = () => {
@@ -73,11 +74,12 @@ const Exhibition = () => {
           </a>
         )}
         <div style={{ marginBottom: "2vw" }} />
-        {exhibition.datas.map((content) => {
+        {exhibition.datas.map((content, index) => {
           switch (content.category) {
             case "foreground":
               return (
                 <ExhibitionContentImage
+                  key={index}
                   src={`/assets/exhibitions/${exhibition.id}/${content.id}.jpg`}
                   category={"foreground"}
                 ></ExhibitionContentImage>
@@ -85,20 +87,14 @@ const Exhibition = () => {
             case "work":
               return (
                 <ExhibitionContentImage
+                  key={index}
                   src={`/assets/works/${content.id}/0.jpg`}
                   category={"work"}
                 ></ExhibitionContentImage>
               );
           }
         })}
-        {showScrollTopButton && (
-          <div
-            onClick={scrollTop}
-            style={{ position: "fixed", bottom: "6vw", right: "6vw" }}
-          >
-            Top
-          </div>
-        )}
+        {showScrollTopButton && <ScrollTop onClick={scrollTop}>Top</ScrollTop>}
       </ExhibitionContainer>
     );
   }
