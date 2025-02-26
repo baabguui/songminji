@@ -43,7 +43,7 @@ const ScrollTop = styled.div`
   bottom: 6vw;
   font-family: NotoSansKR, NotoSans;
   @media (max-width: 768px) {
-    rigth: 10vw;
+    right: 10vw;
     width: 10vw;
     height: 10vw;
     border-radius: 50%;
