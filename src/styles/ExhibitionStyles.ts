@@ -38,6 +38,7 @@ const ExhibitionContentCaption = styled.p`
 `;
 
 const ScrollTop = styled.div`
+  font-size: clamp(10px, 1.2vw, 22px);
   position: fixed;
   right: 6vw;
   bottom: 6vw;
