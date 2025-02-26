@@ -8,14 +8,15 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       { "argsIgnorePattern": "^_", "varsIgnorePattern": "^routeWrap$" }
     ],
     "@typescript-eslint/no-undef": "off",
-    "prettier/prettier": ["error", { "endOfLine": "auto" }],
-    "react/react-in-jsx-scope": "off"
+    "prettier/prettier": ["error", { "endOfLine": "auto" }]
   },
   "settings": {
     "react": {
