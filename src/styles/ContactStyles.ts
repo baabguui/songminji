@@ -8,7 +8,7 @@ const ContactContainer = styled.div`
 
 const ContactParagraph = styled.p`
   font-size: clamp(10px, 1.2vw, 22px);
-  font-family: Malgun Gothic;
+  font-family: NotoSansKR, NotoSans;
   margin: 0;
 
   @media (max-width: 768px) {

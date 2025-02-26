@@ -3,15 +3,15 @@ import styled from "styled-components";
 const ExhibitionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 86vw;
+  width: 70vw;
   @media (max-width: 768px) {
-    width: 80vw;
+    width: 86vw;
   }
 `;
 
 const ExhibitionParagraph = styled.p`
   font-size: clamp(10px, 1.2vw, 22px);
-  font-family: Malgun Gothic;
+  font-family: NotoSansKR, NotoSans;
   margin: 0;
   @media (max-width: 768px) {
     font-size: clamp(12px, 3.4vw, 24px);
@@ -25,9 +25,12 @@ interface ExhibitionContentImageProps {
 }
 
 const ExhibitionContentImage = styled.img<ExhibitionContentImageProps>`
-  width: 86vw;
+  width: 65vw;
   height: auto;
   object-fit: contain;
+  @media (max-width: 768px) {
+    width: 86vw;
+  }
 `;
 
 const ExhibitionContentCaption = styled.p`
@@ -36,9 +39,11 @@ const ExhibitionContentCaption = styled.p`
 
 const ScrollTop = styled.div`
   position: fixed;
-  right: 10vw;
+  right: 6vw;
   bottom: 6vw;
+  font-family: NotoSansKR, NotoSans;
   @media (max-width: 768px) {
+    rigth: 10vw;
     width: 10vw;
     height: 10vw;
     border-radius: 50%;

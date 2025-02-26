@@ -17,7 +17,7 @@ const MenuItem = styled.div<MenuItemProps>`
   color: black;
   font-style: ${({ selected }) => (selected ? "italic" : "normal")};
   font-size: clamp(12px, 1.6vw, 26px);
-  font-family: Malgun Gothic;
+  font-family: NotoSansKR, NotoSans;
   margin: -0.1vw;
   &:hover {
     font-style: ${({ category }) =>
