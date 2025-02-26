@@ -5,6 +5,7 @@ import {
   ExhibitionParagraph,
   ExhibitionContentImage,
   ExhibitionContentCaption,
+  ScrollTop,
 } from "styles/ExhibitionStyles";
 
 const Exhibition = () => {
@@ -91,14 +92,7 @@ const Exhibition = () => {
               );
           }
         })}
-        {showScrollTopButton && (
-          <div
-            onClick={scrollTop}
-            style={{ position: "fixed", bottom: "6vw", right: "6vw" }}
-          >
-            Top
-          </div>
-        )}
+        {showScrollTopButton && <ScrollTop onClick={scrollTop}>Top</ScrollTop>}
       </ExhibitionContainer>
     );
   }
