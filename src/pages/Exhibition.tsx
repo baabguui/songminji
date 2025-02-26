@@ -74,11 +74,12 @@ const Exhibition = () => {
           </a>
         )}
         <div style={{ marginBottom: "2vw" }} />
-        {exhibition.datas.map((content) => {
+        {exhibition.datas.map((content, index) => {
           switch (content.category) {
             case "foreground":
               return (
                 <ExhibitionContentImage
+                  key={index}
                   src={`/assets/exhibitions/${exhibition.id}/${content.id}.jpg`}
                   category={"foreground"}
                 ></ExhibitionContentImage>
@@ -86,6 +87,7 @@ const Exhibition = () => {
             case "work":
               return (
                 <ExhibitionContentImage
+                  key={index}
                   src={`/assets/works/${content.id}/0.jpg`}
                   category={"work"}
                 ></ExhibitionContentImage>

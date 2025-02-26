@@ -7,6 +7,8 @@ import {
   CVContentParagraph,
 } from "styles/CVStyles";
 
+import { Fragment } from "react";
+
 const CV = () => {
   const renderCategory = (language: string, category: string) => {
     const descriptions: Record<string, Record<string, string>> = {
@@ -19,7 +21,6 @@ const CV = () => {
         groupExhibitions: "Group Exhibitions",
       },
     };
-    console.log(language);
 
     const matchedDescription = descriptions[language]?.[category];
     if (matchedDescription) {
@@ -38,7 +39,7 @@ const CV = () => {
             <CVLanguageContainer key={index}>
               {Object.entries(lan[0]).map(([category, categoryContents]) => {
                 return (
-                  <>
+                  <Fragment key={category}>
                     {renderCategory(lanName, category)}
                     {categoryContents.map((year, index) => {
                       return (
@@ -72,7 +73,7 @@ const CV = () => {
                         </CVContentContainer>
                       );
                     })}
-                  </>
+                  </Fragment>
                 );
               })}
             </CVLanguageContainer>
