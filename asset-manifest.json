@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.1373332f.js",
+    "main.js": "/static/js/main.b8199156.js",
     "static/media/NotoSansKR-Regular.ttf": "/static/media/NotoSansKR-Regular.9bc92a36ed81392f698b.ttf",
     "static/media/NotoSans-VariableFont_wdth,wght.ttf": "/static/media/NotoSans-VariableFont_wdth,wght.0e023bdf2fa0b6117356.ttf",
     "index.html": "/index.html",
-    "main.1373332f.js.map": "/static/js/main.1373332f.js.map"
+    "main.b8199156.js.map": "/static/js/main.b8199156.js.map"
   },
   "entrypoints": [
-    "static/js/main.1373332f.js"
+    "static/js/main.b8199156.js"
   ]
 }
