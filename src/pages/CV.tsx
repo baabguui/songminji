@@ -4,6 +4,7 @@ import {
   CVLanguageContainer,
   CVYearContainer,
   CVContentContainer,
+  CVCategoryParagraph,
   CVContentParagraph,
 } from "styles/CVStyles";
 
@@ -13,18 +14,20 @@ const CV = () => {
   const renderCategory = (language: string, category: string) => {
     const descriptions: Record<string, Record<string, string>> = {
       korean: {
+        educations: "학력",
         soloExhibitions: "개인전",
         groupExhibitions: "단체전",
       },
       english: {
-        soloExhibitions: "Solo Exhibitions",
-        groupExhibitions: "Group Exhibitions",
+        educations: "Education",
+        soloExhibitions: "Solo Exhibition",
+        groupExhibitions: "Group Exhibition",
       },
     };
 
     const matchedDescription = descriptions[language]?.[category];
     if (matchedDescription) {
-      return <CVContentParagraph>{matchedDescription}</CVContentParagraph>;
+      return <CVCategoryParagraph>{matchedDescription}</CVCategoryParagraph>; //여기
     }
   };
   return (

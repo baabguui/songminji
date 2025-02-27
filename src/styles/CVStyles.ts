@@ -4,7 +4,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   @media (max-width: 768px) {
-    gap: 6vw;
+    gap: 4vw;
   }
 `;
 
@@ -15,7 +15,7 @@ const CVContainer = styled.div`
   gap: 0vw;
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 6vw;
+    gap: 4vw;
   }
 `;
 
@@ -24,7 +24,8 @@ const CVLanguageContainer = styled.div`
   flex-direction: column;
   gap: 1vw;
   @media (max-width: 768px) {
-    gap: 6vw;
+    gap: 2vw;
+    padding-bottom: 4vw;
   }
 `;
 
@@ -41,12 +42,24 @@ const CVYearContainer = styled.div<YearContainerProps>`
   min-height: ${({ category }) => (category === "educations" ? "4vw" : 0)};
   @media (max-width: 768px) {
     width: 80vw;
+    // padding-bottom: 2.6vw;
   }
 `;
 
 const CVContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const CVCategoryParagraph = styled.p`
+  font-size: clamp(10px, 1.2vw, 22px);
+  font-family: NotoSanskr, NotoSans;
+  margin: 0;
+  @media (max-width: 768px) {
+    font-size: clamp(12px, 3.4vw, 24px);
+    margin: 0;
+    padding-top: 4vw;
+  }
 `;
 
 const CVContentParagraph = styled.p`
@@ -65,5 +78,6 @@ export {
   CVLanguageContainer,
   CVYearContainer,
   CVContentParagraph,
+  CVCategoryParagraph,
   CVContentContainer,
 };
