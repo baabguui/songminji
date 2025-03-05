@@ -9,6 +9,6 @@ interface Exhibition {
 
 interface ExhibitionData {
   category: string;
-  id: number;
+  id: number | string;
   title?: string;
 }

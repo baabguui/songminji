@@ -8,12 +8,20 @@
       "datas": [
         { "category": "foreground", "id": 0 },
         { "category": "foreground", "id": 1 },
+        {
+          "category": "work",
+          "id": "vacancy-0",
+          "title": "untitled, 2024. oil on canvas, 285x166cm"
+        },
         { "category": "foreground", "id": 2 },
         { "category": "foreground", "id": 3 },
+        {
+          "category": "work",
+          "id": "vacancy-1",
+          "title": "Marker, 2022. oil on canvas, 262x166cm"
+        },
         { "category": "foreground", "id": 4 },
-        { "category": "foreground", "id": 5 },
-        { "category": "foreground", "id": 6 },
-        { "category": "foreground", "id": 7 }
+        { "category": "foreground", "id": 5 }
       ]
     }
   ],
@@ -36,24 +44,60 @@
       "place": "상히읗 sangheeut",
       "period": "2024.10.30.-2024.11.23.",
       "datas": [
+        {
+          "category": "work",
+          "id": "park-0",
+          "title": "Park, 2024. oil on canvas, 248x145.5cm"
+        },
         { "category": "foreground", "id": 0 },
         { "category": "foreground", "id": 1 },
         { "category": "foreground", "id": 2 },
         { "category": "foreground", "id": 3 },
+        {
+          "category": "work",
+          "id": "park-1",
+          "title": "Park, 2024. oil on canvas, 130x90cm"
+        },
         { "category": "foreground", "id": 4 },
+        {
+          "category": "work",
+          "id": "park-2",
+          "title": "Park, 2024. oil on canvas, 97x97cm"
+        },
+        {
+          "category": "work",
+          "id": "park-3",
+          "title": "Park, 2024. oil on canvas, 125x130cm"
+        },
+        {
+          "category": "work",
+          "id": "park-4",
+          "title": "Park, 2024. oil on canvas, 149x145cm"
+        },
         { "category": "foreground", "id": 5 },
+        {
+          "category": "work",
+          "id": "park-5",
+          "title": "Park, 2024. oil on canvas, 130x193cm"
+        },
         { "category": "foreground", "id": 6 },
         { "category": "foreground", "id": 7 },
         { "category": "foreground", "id": 8 },
-        { "category": "foreground", "id": 9 },
-        { "category": "foreground", "id": 10 },
-        { "category": "foreground", "id": 11 },
-        { "category": "foreground", "id": 12 },
-        { "category": "foreground", "id": 13 },
-        { "category": "foreground", "id": 14 },
-        { "category": "foreground", "id": 15 },
-        { "category": "foreground", "id": 16 },
-        { "category": "foreground", "id": 17 }
+        {
+          "category": "work",
+          "id": "park-6",
+          "title": "Park, 2024. oil on canvas, 116x91cm"
+        },
+        {
+          "category": "work",
+          "id": "park-7",
+          "title": "Untitled, 2022. oil on canvas, 255x166cm"
+        },
+        {
+          "category": "work",
+          "id": "park-8",
+          "title": "Park, 2024. oil on canvas, 255x147cm"
+        }
       ]
     },
     {
@@ -65,7 +109,11 @@
         { "category": "foreground", "id": 0 },
         { "category": "foreground", "id": 1 },
         { "category": "foreground", "id": 2 },
-        { "category": "foreground", "id": 3 }
+        {
+          "category": "work",
+          "id": "undo-effects-0",
+          "title": "untitled, 2024. oil on canvas, 248x130cm"
+        }
       ]
     },
     {
@@ -81,30 +129,30 @@
         { "category": "foreground", "id": 3 },
         {
           "category": "work",
-          "id": 0,
-          "title": "송민지, Untitled, 2023. oil on canvas, 193.9x130.3cm"
+          "id": "well-0",
+          "title": "Untitled, 2023. oil on canvas, 193.9x130.3cm"
         },
         { "category": "foreground", "id": 4 },
         { "category": "foreground", "id": 5 },
         {
           "category": "work",
-          "id": 1,
-          "title": "송민지, Untitled, 2023. oil on canvas, 227.3x145.5cm"
+          "id": "well-1",
+          "title": "Untitled, 2023. oil on canvas, 227.3x145.5cm"
         },
         {
           "category": "work",
-          "id": 2,
-          "title": "송민지, Untitled, 2023. oil on canvas, 130.3x248cm"
+          "id": "well-2",
+          "title": "Untitled, 2023. oil on canvas, 130.3x248cm"
         },
         {
           "category": "work",
-          "id": 3,
-          "title": "송민지, Untitled, 2023. oil on canvas, 130.3x248cm"
+          "id": "well-3",
+          "title": "Untitled, 2023. oil on canvas, 130.3x248cm"
         },
         {
           "category": "work",
-          "id": 4,
-          "title": "송민지, 1.15.-1.18., 2023. oil on canvas, 165.5x772cm"
+          "id": "well-4",
+          "title": "1.15.-1.18., 2023. oil on canvas, 165.5x772cm"
         },
         { "category": "foreground", "id": 6 },
         { "category": "foreground", "id": 7 },
