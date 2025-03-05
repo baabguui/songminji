@@ -132,31 +132,41 @@
           "id": "well-0",
           "title": "Untitled, 2023. oil on canvas, 193.9x130.3cm"
         },
-        { "category": "foreground", "id": 4 },
-        { "category": "foreground", "id": 5 },
+
         {
           "category": "work",
           "id": "well-1",
-          "title": "Untitled, 2023. oil on canvas, 227.3x145.5cm"
+          "title": "Untitled, 2023. oil on canvas, 145.5x193.9cm"
         },
+
         {
           "category": "work",
           "id": "well-2",
-          "title": "Untitled, 2023. oil on canvas, 130.3x248cm"
+          "title": "Untitled, 2023. oil on canvas, 130.3x324.3cm"
         },
         {
           "category": "work",
           "id": "well-3",
-          "title": "Untitled, 2023. oil on canvas, 130.3x248cm"
+          "title": "Untitled, 2023. oil on canvas, 227.3x145.5cm"
         },
         {
           "category": "work",
           "id": "well-4",
+          "title": "Untitled, 2023. oil on canvas, 130.3x248cm"
+        },
+        {
+          "category": "work",
+          "id": "well-5",
+          "title": "Untitled, 2023. oil on canvas, 248x145.5cm"
+        },
+        {
+          "category": "work",
+          "id": "well-6",
           "title": "1.15.-1.18., 2023. oil on canvas, 165.5x772cm"
         },
-        { "category": "foreground", "id": 6 },
-        { "category": "foreground", "id": 7 },
-        { "category": "foreground", "id": 8 }
+        { "category": "foreground", "id": 4 },
+        { "category": "foreground", "id": 5 },
+        { "category": "foreground", "id": 6 }
       ]
     }
   ]
