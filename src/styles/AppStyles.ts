@@ -13,6 +13,7 @@ const AppContainer = styled.div`
 `;
 
 const ContentContainer = styled.div`
+  width: 100%;
   margin-top: clamp(16px, 2.6vw, 36px);
   @media (max-width: 768px) {
     margin-top: 0;
