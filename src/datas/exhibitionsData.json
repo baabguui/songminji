@@ -1,6 +1,28 @@
 {
   "2025": [
     {
+      "id": "wonderSquare",
+      "title": "원더스퀘어 Wondersquare",
+      "place": "뮤지엄헤드 Museumhead",
+      "period": "2025.5.1.-2025.6.28.",
+      "datas": [
+        { "category": "foreground", "id": 0 },
+        { "category": "foreground", "id": 1 },
+        { "category": "foreground", "id": 2 },
+        {
+          "category": "work",
+          "id": "wonderSquare-0",
+          "title": "Bridge, 2025. oil on canvas, 268x179cm"
+        },
+        {
+          "category": "work",
+          "id": "wonderSquare-1",
+          "title": "Untitled, 2023. oil on canvas, 248x167cm"
+        }
+      ]
+    },
+
+    {
       "id": "vacancy",
       "title": "공실 Vacancy",
       "place": "서울시 강남구 압구정로 75길 38-17 2층",
