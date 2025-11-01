@@ -66,7 +66,7 @@ const Exhibition = () => {
         data={openImage}
       >
         <ExhibitionContainer>
-          <ExhibitionParagraph>{exhibition.title}</ExhibitionParagraph>
+          <ExhibitionParagraph>《{exhibition.title}》</ExhibitionParagraph>
           <ExhibitionParagraph>{exhibition.place}</ExhibitionParagraph>
           <ExhibitionParagraph>{exhibition.period}</ExhibitionParagraph>
           {exhibition.file && (

@@ -30,7 +30,7 @@ const Preview = ({
                         onItemClicked(item.id);
                       }}
                     >
-                      <ItemParagraph>{item.title}</ItemParagraph>
+                      <ItemParagraph>《{item.title}》</ItemParagraph>
                       <ItemParagraph>{item.place}</ItemParagraph>
                     </Item>
                   );
