@@ -30,7 +30,9 @@ const Preview = ({
                         onItemClicked(item.id);
                       }}
                     >
-                      <ItemParagraph>《{item.title}》</ItemParagraph>
+                      <ItemParagraph style={{ marginLeft: "-0.4rem" }}>
+                        《{item.title}》
+                      </ItemParagraph>
                       <ItemParagraph>{item.place}</ItemParagraph>
                     </Item>
                   );
