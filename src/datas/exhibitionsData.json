@@ -1,6 +1,51 @@
 {
   "2025": [
     {
+      "id": "olm",
+      "title": "옮 프로젝트 OLM Project",
+      "place": "",
+      "period": "2025.10.28.-11.28.",
+      "datas": [
+        {
+          "category": "work",
+          "id": "olm-0",
+          "title": "OLM, 2025, oil on canvas, 277×366cm"
+        },
+        { "category": "foreground", "id": 0 },
+        { "category": "foreground", "id": 1 },
+        { "category": "foreground", "id": 2 },
+        {
+          "category": "work",
+          "id": "olm-1",
+          "title": "OLM, 2025. Oil on canvas, 277×277cm"
+        },
+        { "category": "foreground", "id": 3 },
+        { "category": "foreground", "id": 4 },
+        {
+          "category": "work",
+          "id": "olm-2",
+          "title": "OLM 2025 Oil on Canvas"
+        },
+        {
+          "category": "work",
+          "id": "olm-3",
+          "title": "OLM 2025 Oil on Canvas"
+        },
+        { "category": "foreground", "id": 5 },
+        {
+          "category": "work",
+          "id": "olm-4",
+          "title": "OLM, 2025. Oil on canvas, 217×153cm"
+        },
+        {
+          "category": "work",
+          "id": "olm-5",
+          "title": "Untitled, 2025. Oil on canvas, 140×72cm"
+        },
+        { "category": "foreground", "id": 6 }
+      ]
+    },
+    {
       "id": "wonderSquare",
       "title": "원더스퀘어 Wondersquare",
       "place": "뮤지엄헤드 Museumhead",
@@ -188,51 +233,6 @@
         },
         { "category": "foreground", "id": 4 },
         { "category": "foreground", "id": 5 },
-        { "category": "foreground", "id": 6 }
-      ]
-    },
-    {
-      "id": "olm",
-      "title": "옮 프로젝트 OLM Project",
-      "place": "",
-      "period": "2025.10.28.-11.28.",
-      "datas": [
-        {
-          "category": "work",
-          "id": "olm-0",
-          "title": "OLM, 2025, oil on canvas, 277×366cm"
-        },
-        { "category": "foreground", "id": 0 },
-        { "category": "foreground", "id": 1 },
-        { "category": "foreground", "id": 2 },
-        {
-          "category": "work",
-          "id": "olm-1",
-          "title": "OLM, 2025. Oil on canvas, 277×277cm"
-        },
-        { "category": "foreground", "id": 3 },
-        { "category": "foreground", "id": 4 },
-        {
-          "category": "work",
-          "id": "olm-2",
-          "title": "OLM 2025 Oil on Canvas"
-        },
-        {
-          "category": "work",
-          "id": "olm-3",
-          "title": "OLM 2025 Oil on Canvas"
-        },
-        { "category": "foreground", "id": 5 },
-        {
-          "category": "work",
-          "id": "olm-4",
-          "title": "OLM, 2025. Oil on canvas, 217×153cm"
-        },
-        {
-          "category": "work",
-          "id": "olm-5",
-          "title": "Untitled, 2025. Oil on canvas, 140×72cm"
-        },
         { "category": "foreground", "id": 6 }
       ]
     }
