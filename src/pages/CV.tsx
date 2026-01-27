@@ -94,6 +94,7 @@ const korean = [
     educations: [{ 2022: ["서울과학기술대학교 조형예술과 학사 졸업"] }],
     soloExhibitions: [
       {
+        2025: ["옮 프로젝트"],
         2024: ["파크, 상히읗", "웰, 인터럼"],
       },
     ],
@@ -120,6 +121,7 @@ const english = [
     ],
     soloExhibitions: [
       {
+        2025: ["OLM Project"],
         2024: ["Park, sangheeut", "WELL, INTERIM"],
       },
     ],
