@@ -1,4 +1,21 @@
 {
+  "2026": [
+    {
+      "id": "in-place",
+      "title": "In Place",
+      "place": "갤러리2 중선농원 Gallery 2 jeju",
+      "period": "2026.4.22.-6.20.",
+      "datas": [
+        { "category": "foreground", "id": 0 },
+        { "category": "foreground", "id": 1 },
+        {
+          "category": "work",
+          "id": "in-place-0",
+          "title": "Pedal 1~17, 2026. oil on canvas, variable dimensions"
+        }
+      ]
+    }
+  ],
   "2025": [
     {
       "id": "olm",
