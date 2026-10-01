@@ -1,21 +1,42 @@
-import exhibitionsData from "datas/exhibitionsData.json";
+import { useEffect, useState } from "react";
 import Preview from "components/Preview";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "lib/supabaseClient";
 
 const Exhibitions = () => {
   const navigate = useNavigate();
-  const previewData = Object.entries(exhibitionsData).reduce(
-    (acc, [year, exhibitions]) => {
-      acc[year] = exhibitions.map((exhibition) => ({
-        id: exhibition.id,
-        title: exhibition.title,
-        place: exhibition.place,
-        period: exhibition.period,
-      }));
-      return acc;
-    },
-    {} as ExhibitionsByYear,
-  );
+  const [previewData, setPreviewData] = useState<ExhibitionsByYear>({});
+
+  useEffect(() => {
+    const fetchExhibitions = async () => {
+      const { data, error } = await supabase
+        .from("exhibitions")
+        .select("id, title, place, period, year, sort_order")
+        .order("year", { ascending: false })
+        .order("sort_order", { ascending: true });
+
+      if (error) {
+        console.error(error);
+        return;
+      }
+
+      const grouped = (data ?? []).reduce((acc, exhibition) => {
+        const year = String(exhibition.year);
+        if (!acc[year]) acc[year] = [];
+        acc[year].push({
+          id: exhibition.id,
+          title: exhibition.title,
+          place: exhibition.place,
+          period: exhibition.period,
+        });
+        return acc;
+      }, {} as ExhibitionsByYear);
+
+      setPreviewData(grouped);
+    };
+
+    fetchExhibitions();
+  }, []);
 
   const handleItemClick = (id: string) => {
     navigate(`/exhibitions/${id}`);

@@ -8,9 +8,70 @@ import {
   CVContentParagraph,
 } from "styles/CVStyles";
 
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { supabase } from "lib/supabaseClient";
+
+interface CvEntryRow {
+  language: "korean" | "english";
+  category: "education" | "soloExhibition" | "groupExhibition";
+  year: number;
+  content: string;
+  sort_order: number;
+}
+
+type CvLanguageData = {
+  educations: Record<string, string[]>[];
+  soloExhibitions: Record<string, string[]>[];
+  groupExhibitions: Record<string, string[]>[];
+}[];
+
+const CATEGORY_KEY_MAP = {
+  education: "educations",
+  soloExhibition: "soloExhibitions",
+  groupExhibition: "groupExhibitions",
+} as const;
+
+function buildLanguageData(rows: CvEntryRow[], language: "korean" | "english"): CvLanguageData {
+  const byCategory: Record<string, Record<string, string[]>> = {
+    educations: {},
+    soloExhibitions: {},
+    groupExhibitions: {},
+  };
+
+  rows
+    .filter((row) => row.language === language)
+    .sort((a, b) => a.sort_order - b.sort_order)
+    .forEach((row) => {
+      const key = CATEGORY_KEY_MAP[row.category];
+      if (!byCategory[key][row.year]) byCategory[key][row.year] = [];
+      byCategory[key][row.year].push(row.content);
+    });
+
+  return [
+    {
+      educations: [byCategory.educations],
+      soloExhibitions: [byCategory.soloExhibitions],
+      groupExhibitions: [byCategory.groupExhibitions],
+    },
+  ];
+}
 
 const CV = () => {
+  const [cv, setCv] = useState<CvLanguageData[]>([]);
+
+  useEffect(() => {
+    const fetchCv = async () => {
+      const { data, error } = await supabase.from("cv_entries").select("*");
+      if (error) {
+        console.error(error);
+        return;
+      }
+      const rows = (data ?? []) as CvEntryRow[];
+      setCv([buildLanguageData(rows, "korean"), buildLanguageData(rows, "english")]);
+    };
+    fetchCv();
+  }, []);
+
   const renderCategory = (language: string, category: string) => {
     const descriptions: Record<string, Record<string, string>> = {
       korean: {
@@ -27,7 +88,7 @@ const CV = () => {
 
     const matchedDescription = descriptions[language]?.[category];
     if (matchedDescription) {
-      return <CVCategoryParagraph>{matchedDescription}</CVCategoryParagraph>; //여기
+      return <CVCategoryParagraph>{matchedDescription}</CVCategoryParagraph>;
     }
   };
   return (
@@ -88,56 +149,3 @@ const CV = () => {
 };
 
 export default CV;
-
-const korean = [
-  {
-    educations: [{ 2022: ["서울과학기술대학교 조형예술과 학사 졸업"] }],
-    soloExhibitions: [
-      {
-        2025: ["옮 프로젝트, 서울 중랑구"],
-        2024: ["파크, 상히읗", "웰, 인터럼"],
-      },
-    ],
-    groupExhibitions: [
-      {
-        2025: ["공실, 서울시 강남구 압구정로 75길 38-17 2층"],
-        2024: ["겨울 회화, 대안 공간 루프", "언두 이펙트, 하이트 컬렉션"],
-        2023: ["포 니들스, 에브리아트", "퀘스트, 갤러리 인"],
-        2022: ["피어 투 피어, 온수 공간"],
-        2020: ["미리 찌는 살, 웨스"],
-      },
-    ],
-  },
-];
-
-const english = [
-  {
-    educations: [
-      {
-        2022: [
-          "BFA Fine Arts, Seoul National University of Science & Technology, Seoul",
-        ],
-      },
-    ],
-    soloExhibitions: [
-      {
-        2025: ["OLM Project, Jungnang-gu, Seoul"],
-        2024: ["Park, sangheeut", "WELL, INTERIM"],
-      },
-    ],
-    groupExhibitions: [
-      {
-        2025: ["Vacancy, Apgujeong-ro 75-gil, Seoul"],
-        2024: [
-          "Painting in Winter, Alternative Space Loop",
-          "Undo Effects, Hite Collection",
-        ],
-        2023: ["4 Needles, every Art", "QUEST, gallery IN"],
-        2022: ["Peer to Peer, onsu gonggan"],
-        2020: ["Fatten up for Tomorrow, WESS"],
-      },
-    ],
-  },
-];
-
-export const cv = [korean, english];

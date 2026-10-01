@@ -3,12 +3,14 @@ interface Exhibition {
   title: string;
   place: string;
   period: string;
-  file?: string;
-  datas: ExhibitionData[];
+  year: number;
+  pdfUrl?: string;
+  pdfFilename?: string;
+  contents: ExhibitionContent[];
 }
 
-interface ExhibitionData {
+interface ExhibitionContent {
   category: string;
-  id: number | string;
-  title?: string;
+  imageUrl: string;
+  caption?: string;
 }

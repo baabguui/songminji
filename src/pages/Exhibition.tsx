@@ -4,10 +4,10 @@ import {
   ExhibitionContainer,
   ExhibitionParagraph,
   ExhibitionContentImage,
-  ExhibitionContentCaption,
   ScrollTop,
 } from "styles/ExhibitionStyles";
 import Modal from "components/Modal";
+import { supabase } from "lib/supabaseClient";
 
 const Exhibition = () => {
   const { id } = useParams<{ id: string }>();
@@ -41,21 +41,52 @@ const Exhibition = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!id) return;
       try {
-        const module = await import("datas/exhibitionsData.json");
-        const data = module.default;
-        Object.values(data).forEach((exhibition: Exhibition[]) => {
-          const match = exhibition.find(
-            (exhibition: Exhibition) => exhibition.id === id,
-          );
-          if (match) setExhibition(match);
+        const [{ data: exhibitionRow, error: exhibitionError }, { data: contentRows, error: contentError }] =
+          await Promise.all([
+            supabase.from("exhibitions").select("*").eq("id", id).single(),
+            supabase
+              .from("exhibition_contents")
+              .select("*")
+              .eq("exhibition_id", id)
+              .order("position"),
+          ]);
+
+        if (exhibitionError || contentError || !exhibitionRow) {
+          console.error(exhibitionError ?? contentError);
+          return;
+        }
+
+        const pdfUrl = exhibitionRow.pdf_storage_path
+          ? supabase.storage.from("assets").getPublicUrl(exhibitionRow.pdf_storage_path)
+              .data.publicUrl
+          : undefined;
+
+        const contents: ExhibitionContent[] = (contentRows ?? []).map((content) => ({
+          category: content.category,
+          imageUrl: supabase.storage.from("assets").getPublicUrl(content.storage_path).data
+            .publicUrl,
+          caption: content.caption ?? undefined,
+        }));
+
+        setExhibition({
+          id: exhibitionRow.id,
+          title: exhibitionRow.title,
+          place: exhibitionRow.place,
+          period: exhibitionRow.period,
+          year: exhibitionRow.year,
+          pdfUrl,
+          pdfFilename: exhibitionRow.pdf_filename ?? undefined,
+          contents,
         });
       } catch (error) {
-        console.error;
+        console.error(error);
       }
     };
     fetchData();
   }, [id]);
+
   if (exhibition) {
     return (
       <Modal
@@ -66,58 +97,37 @@ const Exhibition = () => {
         data={openImage}
       >
         <ExhibitionContainer>
-          <ExhibitionParagraph style={{ marginLeft: "-0.4rem" }}>
-            《{exhibition.title}》
-          </ExhibitionParagraph>
+          <ExhibitionParagraph style={{ marginLeft: "-0.4rem" }}>《{exhibition.title}》</ExhibitionParagraph>
           <ExhibitionParagraph>{exhibition.place}</ExhibitionParagraph>
           <ExhibitionParagraph>{exhibition.period}</ExhibitionParagraph>
-          {exhibition.file && (
+          {exhibition.pdfUrl && (
             <a
-              href={`/assets/exhibitions/${exhibition.id}/${exhibition.file}.pdf`}
-              download={`${exhibition.file}.pdf`}
+              href={exhibition.pdfUrl}
+              download={exhibition.pdfFilename ? `${exhibition.pdfFilename}.pdf` : undefined}
               style={{
                 marginTop: "1vw",
                 textDecoration: "none",
               }}
             >
               <ExhibitionParagraph style={{ color: "cadetblue" }}>
-                {exhibition.file}
+                {exhibition.pdfFilename}
               </ExhibitionParagraph>
             </a>
           )}
           <div style={{ marginBottom: "2vw" }} />
-          {exhibition.datas.map((content, index) => {
-            switch (content.category) {
-              case "foreground":
-                return (
-                  <ExhibitionContentImage
-                    key={index}
-                    src={`/assets/exhibitions/${exhibition.id}/${content.id}.jpg`}
-                    category={"foreground"}
-                    onClick={() =>
-                      setOpenImage({
-                        title: "",
-                        url: `/assets/exhibitions/${exhibition.id}/${content.id}.jpg`,
-                      })
-                    }
-                  ></ExhibitionContentImage>
-                );
-              case "work":
-                return (
-                  <ExhibitionContentImage
-                    key={index}
-                    src={`/assets/works/${content.id}/0.jpg`}
-                    category={"work"}
-                    onClick={() =>
-                      setOpenImage({
-                        title: `${content.title}`,
-                        url: `/assets/works/${content.id}/0.jpg`,
-                      })
-                    }
-                  ></ExhibitionContentImage>
-                );
-            }
-          })}
+          {exhibition.contents.map((content, index) => (
+            <ExhibitionContentImage
+              key={index}
+              src={content.imageUrl}
+              category={content.category}
+              onClick={() =>
+                setOpenImage({
+                  title: content.caption ?? "",
+                  url: content.imageUrl,
+                })
+              }
+            ></ExhibitionContentImage>
+          ))}
           {showScrollTopButton && (
             <ScrollTop onClick={scrollTop}>Top</ScrollTop>
           )}

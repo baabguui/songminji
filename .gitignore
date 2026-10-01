@@ -10,6 +10,9 @@
 
 /build
 
+# supabase schema/migration SQL (kept local only)
+/supabase
+
 # misc
 .DS_Store
 .env.local
