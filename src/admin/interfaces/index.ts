@@ -19,6 +19,15 @@ export interface ExhibitionContentRow {
   caption: string | null;
 }
 
+export interface PopupRow {
+  id: string;
+  storage_path: string;
+  link: string;
+  start_date: string;
+  end_date: string;
+  sort_order: number;
+}
+
 export interface CvEntryRow {
   id: string;
   pair_id: string;

@@ -16,6 +16,7 @@ const AdminLayout = () => {
       <Nav>
         <NavLink to="/admin/exhibitions">Exhibitions</NavLink>
         <NavLink to="/admin/cv">CV</NavLink>
+        <NavLink to="/admin/popups">Popups</NavLink>
         <SignOutButton onClick={handleSignOut}>Sign out</SignOutButton>
       </Nav>
       <Main>

@@ -1,16 +1,34 @@
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 import { PopupContainer, PopupImage } from "styles/PopupStyles";
-import { POPUP_LIST } from "datas/popupConfig";
+import { supabase } from "lib/supabaseClient";
+
+interface PopupRow {
+  id: string;
+  storage_path: string;
+  link: string;
+  start_date: string;
+  end_date: string;
+}
 
 const Home = () => {
-  const activePopups = useMemo(() => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const todayStr = today.toISOString().split("T")[0];
+  const [activePopups, setActivePopups] = useState<PopupRow[]>([]);
 
-    return POPUP_LIST.filter((popup) => {
-      return popup.startDate <= todayStr && todayStr <= popup.endDate;
-    });
+  useEffect(() => {
+    const fetchPopups = async () => {
+      const today = new Date().toISOString().split("T")[0];
+      const { data, error } = await supabase
+        .from("popups")
+        .select("*")
+        .lte("start_date", today)
+        .gte("end_date", today)
+        .order("sort_order");
+      if (error) {
+        console.error(error);
+        return;
+      }
+      setActivePopups(data ?? []);
+    };
+    fetchPopups();
   }, []);
 
   if (activePopups.length === 0) {
@@ -20,13 +38,11 @@ const Home = () => {
   return (
     <PopupContainer>
       {activePopups.map((popup) => (
-        <a
-          key={popup.id}
-          href={popup.link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <PopupImage src={popup.imagePath} alt={popup.id} />
+        <a key={popup.id} href={popup.link} target="_blank" rel="noopener noreferrer">
+          <PopupImage
+            src={supabase.storage.from("assets").getPublicUrl(popup.storage_path).data.publicUrl}
+            alt=""
+          />
         </a>
       ))}
     </PopupContainer>
