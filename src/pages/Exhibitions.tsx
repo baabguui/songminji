@@ -11,7 +11,7 @@ const Exhibitions = () => {
     const fetchExhibitions = async () => {
       const { data, error } = await supabase
         .from("exhibitions")
-        .select("id, title, place, period, year, sort_order")
+        .select("id, title, place, year, sort_order")
         .order("year", { ascending: false })
         .order("sort_order", { ascending: true });
 
@@ -27,7 +27,6 @@ const Exhibitions = () => {
           id: exhibition.id,
           title: exhibition.title,
           place: exhibition.place,
-          period: exhibition.period,
         });
         return acc;
       }, {} as ExhibitionsByYear);
