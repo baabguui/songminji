@@ -54,7 +54,7 @@ export async function deleteExhibition(id: string): Promise<void> {
   if (error) throw new Error(error.message);
 }
 
-export async function uploadExhibitionPdf(
+export async function uploadExhibitionPdfFile(
   exhibitionId: string,
   file: File,
 ): Promise<{ pdfStoragePath: string; pdfFilename: string }> {
@@ -65,66 +65,11 @@ export async function uploadExhibitionPdf(
   if (uploadError) throw new Error(uploadError.message);
 
   const pdfFilename = file.name.replace(/\.pdf$/i, "");
-  const { error } = await supabase
-    .from("exhibitions")
-    .update({ pdf_storage_path: pdfStoragePath, pdf_filename: pdfFilename })
-    .eq("id", exhibitionId);
-  if (error) throw new Error(error.message);
-
   return { pdfStoragePath, pdfFilename };
 }
 
-export async function deleteExhibitionPdf(
-  exhibitionId: string,
-  pdfStoragePath: string,
-): Promise<void> {
+export async function removeExhibitionPdfFile(pdfStoragePath: string): Promise<void> {
   await supabase.storage.from(BUCKET).remove([pdfStoragePath]);
-  const { error } = await supabase
-    .from("exhibitions")
-    .update({ pdf_storage_path: null, pdf_filename: null })
-    .eq("id", exhibitionId);
-  if (error) throw new Error(error.message);
-}
-
-async function nextContentPosition(exhibitionId: string): Promise<number> {
-  const { data } = await supabase
-    .from("exhibition_contents")
-    .select("position")
-    .eq("exhibition_id", exhibitionId)
-    .order("position", { ascending: false })
-    .limit(1);
-  return data && data.length > 0 ? data[0].position + 1 : 0;
-}
-
-export async function addContent(
-  exhibitionId: string,
-  file: File,
-  caption?: string,
-): Promise<ExhibitionContentRow> {
-  const compressed = await compressImageToJpeg(file);
-  const storagePath = `exhibitions/${exhibitionId}/${crypto.randomUUID()}.jpg`;
-
-  const { error: uploadError } = await supabase.storage
-    .from(BUCKET)
-    .upload(storagePath, compressed, { contentType: "image/jpeg" });
-  if (uploadError) throw new Error(uploadError.message);
-
-  const trimmedCaption = caption?.trim() || null;
-  const position = await nextContentPosition(exhibitionId);
-  const { data, error } = await supabase
-    .from("exhibition_contents")
-    .insert({
-      exhibition_id: exhibitionId,
-      position,
-      category: trimmedCaption ? "work" : "foreground",
-      storage_path: storagePath,
-      work_ref: null,
-      caption: trimmedCaption,
-    })
-    .select()
-    .single();
-  if (error) throw new Error(error.message);
-  return data as ExhibitionContentRow;
 }
 
 export async function deleteContent(content: ExhibitionContentRow): Promise<void> {
@@ -133,14 +78,62 @@ export async function deleteContent(content: ExhibitionContentRow): Promise<void
   if (error) throw new Error(error.message);
 }
 
-export async function swapContentPositions(
-  a: ExhibitionContentRow,
-  b: ExhibitionContentRow,
-): Promise<void> {
-  const SENTINEL = -1;
-  await supabase.from("exhibition_contents").update({ position: SENTINEL }).eq("id", a.id);
-  await supabase.from("exhibition_contents").update({ position: a.position }).eq("id", b.id);
-  await supabase.from("exhibition_contents").update({ position: b.position }).eq("id", a.id);
+export type PendingContentItem =
+  | { type: "existing"; row: ExhibitionContentRow }
+  | { type: "new"; file: File; caption?: string };
+
+/**
+ * Applies a batch of locally-staged content edits (adds/removes/reorders) in
+ * one go: deletes removed rows, uploads+inserts new ones, and re-numbers
+ * `position` for everything to match the final on-screen order.
+ */
+export async function commitContentChanges(
+  exhibitionId: string,
+  items: PendingContentItem[],
+  deletedRows: ExhibitionContentRow[],
+): Promise<ExhibitionContentRow[]> {
+  for (const row of deletedRows) {
+    await deleteContent(row);
+  }
+
+  const results: ExhibitionContentRow[] = [];
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    if (item.type === "existing") {
+      if (item.row.position !== i) {
+        const { error } = await supabase
+          .from("exhibition_contents")
+          .update({ position: i })
+          .eq("id", item.row.id);
+        if (error) throw new Error(error.message);
+      }
+      results.push({ ...item.row, position: i });
+    } else {
+      const compressed = await compressImageToJpeg(item.file);
+      const storagePath = `exhibitions/${exhibitionId}/${crypto.randomUUID()}.jpg`;
+      const { error: uploadError } = await supabase.storage
+        .from(BUCKET)
+        .upload(storagePath, compressed, { contentType: "image/jpeg" });
+      if (uploadError) throw new Error(uploadError.message);
+
+      const trimmedCaption = item.caption?.trim() || null;
+      const { data, error } = await supabase
+        .from("exhibition_contents")
+        .insert({
+          exhibition_id: exhibitionId,
+          position: i,
+          category: trimmedCaption ? "work" : "foreground",
+          storage_path: storagePath,
+          work_ref: null,
+          caption: trimmedCaption,
+        })
+        .select()
+        .single();
+      if (error) throw new Error(error.message);
+      results.push(data as ExhibitionContentRow);
+    }
+  }
+  return results;
 }
 
 export function getPublicUrl(storagePath: string): string {

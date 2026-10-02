@@ -1,22 +1,18 @@
 import { useEffect, useState } from "react";
 import {
   listCvEntries,
-  addCvPair,
-  addCvEntryToPair,
-  updateCvEntryContent,
+  saveCvChanges,
   deleteCvPair,
-  swapCvPairPositions,
   buildCvPairs,
-  CvPair,
+  SaveCvPairInput,
 } from "admin/api/cv";
 import { CvEntryRow } from "admin/interfaces";
-import { PageTitle, Input } from "admin/styles/FormStyles";
+import { PageTitle, Input, Button } from "admin/styles/FormStyles";
 import { SmallButton } from "admin/styles/ImageUploaderStyles";
 import {
   Sections,
   SectionTitle,
   CategorySection,
-  CategoryTitle,
   YearGroup,
   YearLabel,
   PairRow,
@@ -29,6 +25,11 @@ const CATEGORIES: { key: CvEntryRow["category"]; ko: string; en: string }[] = [
   { key: "soloExhibition", ko: "개인전", en: "Solo Exhibition" },
   { key: "groupExhibition", ko: "단체전", en: "Group Exhibition" },
 ];
+
+interface PairDraft extends SaveCvPairInput {}
+
+let tempIdCounter = 0;
+const nextTempId = () => `new-${Date.now()}-${tempIdCounter++}`;
 
 const BilingualAddForm = ({
   onAdd,
@@ -77,115 +78,102 @@ const BilingualAddForm = ({
 };
 
 const CVAdmin = () => {
-  const [entries, setEntries] = useState<CvEntryRow[]>([]);
-  const [drafts, setDrafts] = useState<Record<string, string>>({});
+  const [pairs, setPairs] = useState<PairDraft[]>([]);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
+  const loadFromDb = () => {
     listCvEntries().then((data) => {
-      setEntries(data);
+      const loaded: PairDraft[] = buildCvPairs(data).map((pair) => ({
+        pairId: pair.pairId,
+        isNew: false,
+        category: pair.category,
+        year: pair.year,
+        sortOrder: pair.sortOrder,
+        koreanId: pair.korean?.id,
+        englishId: pair.english?.id,
+        korean: pair.korean?.content ?? "",
+        english: pair.english?.content ?? "",
+      }));
+      setPairs(loaded);
       setLoading(false);
     });
+  };
+
+  useEffect(() => {
+    loadFromDb();
   }, []);
 
-  const draftKey = (pairId: string, language: CvEntryRow["language"]) =>
-    `${pairId}:${language}`;
-
-  const handleFieldChange = (
-    pair: CvPair,
-    language: CvEntryRow["language"],
-    value: string,
-  ) => {
-    const existing = language === "korean" ? pair.korean : pair.english;
-    if (existing) {
-      setEntries((prev) =>
-        prev.map((e) => (e.id === existing.id ? { ...e, content: value } : e)),
-      );
-    } else {
-      setDrafts((prev) => ({ ...prev, [draftKey(pair.pairId, language)]: value }));
-    }
+  const updatePair = (pairId: string, changes: Partial<PairDraft>) => {
+    setPairs((prev) => prev.map((p) => (p.pairId === pairId ? { ...p, ...changes } : p)));
   };
 
-  const handleFieldBlur = async (pair: CvPair, language: CvEntryRow["language"]) => {
-    const existing = language === "korean" ? pair.korean : pair.english;
-    if (existing) {
-      await updateCvEntryContent(existing.id, existing.content);
-      return;
-    }
-    const key = draftKey(pair.pairId, language);
-    const draftValue = drafts[key]?.trim();
-    if (!draftValue) return;
-    const entry = await addCvEntryToPair({
-      pair_id: pair.pairId,
-      language,
-      category: pair.category,
-      year: pair.year,
-      content: draftValue,
-      sort_order: pair.sortOrder,
-    });
-    setEntries((prev) => [...prev, entry]);
-    setDrafts((prev) => {
-      const next = { ...prev };
-      delete next[key];
-      return next;
-    });
-  };
-
-  const handleDeletePair = async (pairId: string) => {
-    await deleteCvPair(pairId);
-    setEntries((prev) => prev.filter((e) => e.pair_id !== pairId));
-  };
-
-  const handleMovePair = async (
-    yearPairs: CvPair[],
-    index: number,
-    direction: "up" | "down",
-  ) => {
-    const targetIndex = direction === "up" ? index - 1 : index + 1;
-    if (targetIndex < 0 || targetIndex >= yearPairs.length) return;
-    const pairA = yearPairs[index];
-    const pairB = yearPairs[targetIndex];
-    await swapCvPairPositions(pairA, pairB);
-
-    setEntries((prev) =>
-      prev.map((e) => {
-        if (pairA.korean?.id === e.id || pairA.english?.id === e.id) {
-          return { ...e, sort_order: pairB.sortOrder };
-        }
-        if (pairB.korean?.id === e.id || pairB.english?.id === e.id) {
-          return { ...e, sort_order: pairA.sortOrder };
-        }
-        return e;
-      }),
-    );
-  };
-
-  const handleAddBoth = async (
+  const handleAddBoth = (
     category: CvEntryRow["category"],
     year: number,
     koreanContent: string,
     englishContent: string,
   ) => {
-    const bucketPairCount = buildCvPairs(entries).filter(
-      (p) => p.category === category && p.year === year,
-    ).length;
-    const newRows = await addCvPair({
-      category,
-      year,
-      koreanContent,
-      englishContent,
-      sort_order: bucketPairCount,
-    });
-    setEntries((prev) => [...prev, ...newRows]);
+    const bucketPairCount = pairs.filter((p) => p.category === category && p.year === year).length;
+    setPairs((prev) => [
+      ...prev,
+      {
+        pairId: nextTempId(),
+        isNew: true,
+        category,
+        year,
+        sortOrder: bucketPairCount,
+        korean: koreanContent,
+        english: englishContent,
+      },
+    ]);
+  };
+
+  const handleDeletePair = async (pair: PairDraft) => {
+    if (pair.isNew) {
+      setPairs((prev) => prev.filter((p) => p.pairId !== pair.pairId));
+      return;
+    }
+    if (!window.confirm("이 항목을 삭제하시겠습니까?")) return;
+    await deleteCvPair(pair.pairId);
+    setPairs((prev) => prev.filter((p) => p.pairId !== pair.pairId));
+  };
+
+  const handleMovePair = (yearPairs: PairDraft[], index: number, direction: "up" | "down") => {
+    const targetIndex = direction === "up" ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= yearPairs.length) return;
+    const a = yearPairs[index];
+    const b = yearPairs[targetIndex];
+    setPairs((prev) =>
+      prev.map((p) => {
+        if (p.pairId === a.pairId) return { ...p, sortOrder: b.sortOrder };
+        if (p.pairId === b.pairId) return { ...p, sortOrder: a.sortOrder };
+        return p;
+      }),
+    );
+  };
+
+  const handleSave = async () => {
+    if (!window.confirm("저장하시겠습니까?")) return;
+    setSaving(true);
+    try {
+      await saveCvChanges(pairs);
+      loadFromDb();
+    } finally {
+      setSaving(false);
+    }
   };
 
   if (loading) return <p>Loading...</p>;
 
-  const pairs = buildCvPairs(entries);
-
   return (
     <div>
-      <PageTitle>CV</PageTitle>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <PageTitle>CV</PageTitle>
+        <Button type="button" onClick={handleSave} disabled={saving}>
+          저장
+        </Button>
+      </div>
       <Sections>
         {CATEGORIES.map((cat) => {
           const catPairs = pairs.filter((p) => p.category === cat.key);
@@ -206,18 +194,14 @@ const CVAdmin = () => {
                       <PairRow key={pair.pairId}>
                         <Input
                           placeholder="한글 내용"
-                          value={pair.korean?.content ?? drafts[draftKey(pair.pairId, "korean")] ?? ""}
-                          onChange={(e) => handleFieldChange(pair, "korean", e.target.value)}
-                          onBlur={() => handleFieldBlur(pair, "korean")}
+                          value={pair.korean}
+                          onChange={(e) => updatePair(pair.pairId, { korean: e.target.value })}
                           style={{ flex: 1 }}
                         />
                         <Input
                           placeholder="English content"
-                          value={
-                            pair.english?.content ?? drafts[draftKey(pair.pairId, "english")] ?? ""
-                          }
-                          onChange={(e) => handleFieldChange(pair, "english", e.target.value)}
-                          onBlur={() => handleFieldBlur(pair, "english")}
+                          value={pair.english}
+                          onChange={(e) => updatePair(pair.pairId, { english: e.target.value })}
                           style={{ flex: 1 }}
                         />
                         <SmallButton
@@ -232,9 +216,7 @@ const CVAdmin = () => {
                         >
                           ↓
                         </SmallButton>
-                        <SmallButton onClick={() => handleDeletePair(pair.pairId)}>
-                          삭제
-                        </SmallButton>
+                        <SmallButton onClick={() => handleDeletePair(pair)}>삭제</SmallButton>
                       </PairRow>
                     ))}
                   </YearGroup>
@@ -249,6 +231,11 @@ const CVAdmin = () => {
           );
         })}
       </Sections>
+      <div style={{ marginTop: "24px" }}>
+        <Button type="button" onClick={handleSave} disabled={saving}>
+          저장
+        </Button>
+      </div>
     </div>
   );
 };

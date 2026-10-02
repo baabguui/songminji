@@ -52,6 +52,7 @@ const PopupForm = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
+    if (!window.confirm("저장하시겠습니까?")) return;
     if (!startDate || !endDate) {
       setError("Start/end date is required");
       return;
@@ -88,7 +89,7 @@ const PopupForm = () => {
         <FieldRow>
           <Label>Image {isEditing && "(leave empty to keep current)"}</Label>
           {currentImageUrl && (
-            <img src={currentImageUrl} alt="" style={{ width: "160px", objectFit: "contain" }} />
+            <img src={currentImageUrl} alt="" style={{ width: "360px", maxWidth: "100%", height: "auto", objectFit: "contain" }} />
           )}
           <input
             type="file"

@@ -1,10 +1,4 @@
 import { useState } from "react";
-import {
-  addContent,
-  deleteContent,
-  swapContentPositions,
-  getPublicUrl,
-} from "admin/api/exhibitions";
 import { ExhibitionContentRow } from "admin/interfaces";
 import { Input } from "admin/styles/FormStyles";
 import { SmallButton } from "admin/styles/ImageUploaderStyles";
@@ -18,73 +12,65 @@ import {
   AddRow,
 } from "admin/styles/ContentEntryEditorStyles";
 
+export type ContentEditorItem =
+  | { type: "existing"; row: ExhibitionContentRow }
+  | { type: "new"; file: File; caption?: string; previewUrl: string };
+
 interface ContentEntryEditorProps {
-  exhibitionId: string;
-  initialContents: ExhibitionContentRow[];
+  items: ContentEditorItem[];
+  onAdd: (file: File, caption?: string) => void;
+  onDelete: (index: number) => void;
+  onMove: (index: number, direction: "up" | "down") => void;
+  getPublicUrl: (storagePath: string) => string;
 }
 
-const ContentEntryEditor = ({ exhibitionId, initialContents }: ContentEntryEditorProps) => {
-  const [contents, setContents] = useState<ExhibitionContentRow[]>(initialContents);
+const ContentEntryEditor = ({
+  items,
+  onAdd,
+  onDelete,
+  onMove,
+  getPublicUrl,
+}: ContentEntryEditorProps) => {
   const [hasCaption, setHasCaption] = useState(false);
   const [caption, setCaption] = useState("");
-  const [busy, setBusy] = useState(false);
 
-  const handleAdd = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleAdd = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     e.target.value = "";
     if (!file) return;
-    setBusy(true);
-    try {
-      const content = await addContent(exhibitionId, file, hasCaption ? caption : undefined);
-      setContents((prev) => [...prev, content]);
-      setHasCaption(false);
-      setCaption("");
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  const handleDelete = async (id: string) => {
-    const content = contents.find((c) => c.id === id);
-    if (!content) return;
-    await deleteContent(content);
-    setContents((prev) => prev.filter((c) => c.id !== id));
-  };
-
-  const handleMove = async (index: number, direction: "up" | "down") => {
-    const targetIndex = direction === "up" ? index - 1 : index + 1;
-    if (targetIndex < 0 || targetIndex >= contents.length) return;
-    const a = contents[index];
-    const b = contents[targetIndex];
-    await swapContentPositions(a, b);
-    const next = [...contents];
-    next[index] = { ...a, position: b.position };
-    next[targetIndex] = { ...b, position: a.position };
-    next.sort((x, y) => x.position - y.position);
-    setContents(next);
+    onAdd(file, hasCaption ? caption : undefined);
+    setHasCaption(false);
+    setCaption("");
   };
 
   return (
     <div>
       <List>
-        {contents.map((content, index) => (
-          <Row key={content.id}>
-            <Thumb src={getPublicUrl(content.storage_path)} alt="" />
-            <Info>{content.caption && <span>{content.caption}</span>}</Info>
-            <Actions>
-              <SmallButton disabled={index === 0} onClick={() => handleMove(index, "up")}>
-                ↑
-              </SmallButton>
-              <SmallButton
-                disabled={index === contents.length - 1}
-                onClick={() => handleMove(index, "down")}
-              >
-                ↓
-              </SmallButton>
-              <SmallButton onClick={() => handleDelete(content.id)}>삭제</SmallButton>
-            </Actions>
-          </Row>
-        ))}
+        {items.map((item, index) => {
+          const src = item.type === "existing" ? getPublicUrl(item.row.storage_path) : item.previewUrl;
+          const caption = item.type === "existing" ? item.row.caption : item.caption;
+          return (
+            <Row key={index}>
+              <Thumb src={src} alt="" />
+              <Info>
+                {item.type === "new" && <span>저장 시 업로드됨</span>}
+                {caption && <span>{caption}</span>}
+              </Info>
+              <Actions>
+                <SmallButton disabled={index === 0} onClick={() => onMove(index, "up")}>
+                  ↑
+                </SmallButton>
+                <SmallButton
+                  disabled={index === items.length - 1}
+                  onClick={() => onMove(index, "down")}
+                >
+                  ↓
+                </SmallButton>
+                <SmallButton onClick={() => onDelete(index)}>삭제</SmallButton>
+              </Actions>
+            </Row>
+          );
+        })}
       </List>
 
       <AddSection>
@@ -107,8 +93,7 @@ const ContentEntryEditor = ({ exhibitionId, initialContents }: ContentEntryEdito
           )}
         </AddRow>
         <AddRow>
-          <input type="file" accept="image/*" onChange={handleAdd} disabled={busy} />
-          {busy && <span>업로드 중...</span>}
+          <input type="file" accept="image/*" onChange={handleAdd} />
         </AddRow>
       </AddSection>
     </div>

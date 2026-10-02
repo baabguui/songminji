@@ -96,22 +96,65 @@ export async function deleteCvPair(pairId: string): Promise<void> {
   if (error) throw new Error(error.message);
 }
 
-export async function swapCvPairPositions(pairA: CvPair, pairB: CvPair): Promise<void> {
-  const SENTINEL = -1;
-  const languages: CvEntryRow["language"][] = ["korean", "english"];
+export interface SaveCvPairInput {
+  pairId: string;
+  isNew: boolean;
+  category: CvEntryRow["category"];
+  year: number;
+  sortOrder: number;
+  koreanId?: string;
+  englishId?: string;
+  korean: string;
+  english: string;
+}
 
-  for (const language of languages) {
-    const a = language === "korean" ? pairA.korean : pairA.english;
-    const b = language === "korean" ? pairB.korean : pairB.english;
+/**
+ * Applies every locally-staged CV edit (content changes, newly added pairs,
+ * reordering) in one batch, called once when the admin clicks the page-level
+ * Save button.
+ */
+export async function saveCvChanges(pairs: SaveCvPairInput[]): Promise<void> {
+  for (const pair of pairs) {
+    if (pair.isNew) {
+      if (pair.korean.trim() || pair.english.trim()) {
+        await addCvPair({
+          category: pair.category,
+          year: pair.year,
+          koreanContent: pair.korean.trim(),
+          englishContent: pair.english.trim(),
+          sort_order: pair.sortOrder,
+        });
+      }
+      continue;
+    }
 
-    if (a && b) {
-      await supabase.from("cv_entries").update({ sort_order: SENTINEL }).eq("id", a.id);
-      await supabase.from("cv_entries").update({ sort_order: a.sort_order }).eq("id", b.id);
-      await supabase.from("cv_entries").update({ sort_order: b.sort_order }).eq("id", a.id);
-    } else if (a && !b) {
-      await supabase.from("cv_entries").update({ sort_order: pairB.sortOrder }).eq("id", a.id);
-    } else if (!a && b) {
-      await supabase.from("cv_entries").update({ sort_order: pairA.sortOrder }).eq("id", b.id);
+    if (pair.koreanId) {
+      await updateCvEntryContent(pair.koreanId, pair.korean);
+      await supabase.from("cv_entries").update({ sort_order: pair.sortOrder }).eq("id", pair.koreanId);
+    } else if (pair.korean.trim()) {
+      await addCvEntryToPair({
+        pair_id: pair.pairId,
+        language: "korean",
+        category: pair.category,
+        year: pair.year,
+        content: pair.korean.trim(),
+        sort_order: pair.sortOrder,
+      });
+    }
+
+    if (pair.englishId) {
+      await updateCvEntryContent(pair.englishId, pair.english);
+      await supabase.from("cv_entries").update({ sort_order: pair.sortOrder }).eq("id", pair.englishId);
+    } else if (pair.english.trim()) {
+      await addCvEntryToPair({
+        pair_id: pair.pairId,
+        language: "english",
+        category: pair.category,
+        year: pair.year,
+        content: pair.english.trim(),
+        sort_order: pair.sortOrder,
+      });
     }
   }
 }
+

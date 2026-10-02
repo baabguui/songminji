@@ -2,7 +2,9 @@ interface Exhibition {
   id: string;
   title: string;
   place: string;
-  period: string;
+  placeEn?: string;
+  periodStart?: string;
+  periodEnd?: string;
   year: number;
   pdfUrl?: string;
   pdfFilename?: string;

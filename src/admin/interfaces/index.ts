@@ -2,7 +2,9 @@ export interface ExhibitionRow {
   id: string;
   title: string;
   place: string;
-  period: string;
+  place_en: string | null;
+  period_start: string | null;
+  period_end: string | null;
   year: number;
   pdf_storage_path: string | null;
   pdf_filename: string | null;

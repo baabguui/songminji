@@ -8,6 +8,7 @@ import {
 } from "styles/ExhibitionStyles";
 import Modal from "components/Modal";
 import { supabase } from "lib/supabaseClient";
+import { formatPeriod } from "utils/period";
 
 const Exhibition = () => {
   const { id } = useParams<{ id: string }>();
@@ -74,7 +75,9 @@ const Exhibition = () => {
           id: exhibitionRow.id,
           title: exhibitionRow.title,
           place: exhibitionRow.place,
-          period: exhibitionRow.period,
+          placeEn: exhibitionRow.place_en ?? undefined,
+          periodStart: exhibitionRow.period_start ?? undefined,
+          periodEnd: exhibitionRow.period_end ?? undefined,
           year: exhibitionRow.year,
           pdfUrl,
           pdfFilename: exhibitionRow.pdf_filename ?? undefined,
@@ -98,8 +101,15 @@ const Exhibition = () => {
       >
         <ExhibitionContainer>
           <ExhibitionParagraph style={{ marginLeft: "-0.4rem" }}>《{exhibition.title}》</ExhibitionParagraph>
-          <ExhibitionParagraph>{exhibition.place}</ExhibitionParagraph>
-          <ExhibitionParagraph>{exhibition.period}</ExhibitionParagraph>
+          <ExhibitionParagraph>
+            {exhibition.place}
+            {exhibition.placeEn ? ` ${exhibition.placeEn}` : ""}
+          </ExhibitionParagraph>
+          {exhibition.periodStart && exhibition.periodEnd && (
+            <ExhibitionParagraph>
+              {formatPeriod(exhibition.periodStart, exhibition.periodEnd)}
+            </ExhibitionParagraph>
+          )}
           {exhibition.pdfUrl && (
             <a
               href={exhibition.pdfUrl}

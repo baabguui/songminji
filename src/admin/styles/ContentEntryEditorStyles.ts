@@ -9,7 +9,7 @@ const List = styled.div`
 
 const Row = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   padding: 8px;
   border: 1px solid #eee;
@@ -17,9 +17,10 @@ const Row = styled.div`
 `;
 
 const Thumb = styled.img`
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
   border-radius: 4px;
   flex-shrink: 0;
 `;
